@@ -12,8 +12,7 @@ dependencies:
   - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0
 
 test-dependencies:
-  - org.jetbrains.kotlin:kotlin-test-junit5
-  - org.jetbrains.kotlin:kotlin-test-annotations-common
+  - $kotlin.test
 
 test:
   framework: kotlin.test
