@@ -1,6 +1,3 @@
-Here is your updated `README.md` with relevant emojis for a cooler look:
-
-```markdown
 # Kotlin JSON Query 🚀
 
 [![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg)](https://kotlinlang.org/)
