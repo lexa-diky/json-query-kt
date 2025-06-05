@@ -6,6 +6,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
+import kotlin.jvm.JvmInline
 
 @JvmInline
 internal value class PathJsonQuery(private val segments: List<String>) : JsonQuery {

@@ -9,6 +9,7 @@ import io.github.lexadiky.jsonquery.impl.SelectJsonQuery
 import io.github.lexadiky.jsonquery.impl.SliceJsonQuery
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
+import kotlin.jvm.JvmInline
 
 @JvmInline
 value class JsonQueryBuilder(internal val parent: JsonQuery? = null) {

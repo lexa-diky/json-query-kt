@@ -1,4 +1,12 @@
-product: jvm/app
+product:
+  type: lib
+  platforms: [ jvm, android, iosArm64, iosSimulatorArm64, iosX64 ]
+
+settings:
+  publishing:
+    group: io.github.lexadiky
+    name: json-query-kt
+    version: 0.0.1
 
 dependencies:
   - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0
