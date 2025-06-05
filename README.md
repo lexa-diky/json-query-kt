@@ -68,9 +68,3 @@ fun main() {
 - `filter(predicate: (JsonPrimitive) -> Boolean)`: Filter array elements
 - `flatten()`: Flatten nested arrays
 - `get(index: Int)`, `get(range: IntRange)`: Index or slice arrays
-
-## License 📝
-
-MIT
-```
-This version uses emojis to make each section more visually engaging.
