@@ -1,12 +1,8 @@
 # Gradle
 .gradle/
 .kotlin/
-gradle
-gradlew
-gradlew.bat
 build/
 gradle-app.setting
-!gradle-wrapper.jar
 
 # IntelliJ IDEA
 .idea/
