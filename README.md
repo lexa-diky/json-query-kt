@@ -2,8 +2,8 @@
 
 [![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg)](https://kotlinlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/lexa-diky/kotlin-json-query/ci.yml?branch=main)](https://github.com/lexa-diky/kotlin-json-query/actions)
-[![Coverage Status](https://img.shields.io/codecov/c/github/lexa-diky/kotlin-json-query)](https://codecov.io/gh/lexa-diky/kotlin-json-query)
+[![Build](https://img.shields.io/github/actions/workflow/status/lexa-diky/json-query-kt/ci.yml?branch=main)](https://github.com/lexa-diky/json-query-kt/actions)
+[![Coverage Status](https://img.shields.io/codecov/c/github/lexa-diky/json-query-kt)](https://codecov.io/gh/lexa-diky/json-query-kt)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.lexadiky/jsonquery.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:io.github.lexadiky%20a:jsonquery)
 
 A lightweight Kotlin library for querying and transforming JSON data using a fluent, composable API. ✨
