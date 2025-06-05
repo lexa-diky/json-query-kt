@@ -11,11 +11,11 @@ settings:
     enabled: true
     html:
       title: "Test coverage report"
-      reportDir: "report/coverage-report"
+      reportDir: "build/reports//coverage/html/coverage-report"
       onCheck: true
     xml:
       onCheck: true
-      reportFile: "report/coverage-report.xml"
+      reportFile: "build/reports/coverage/coverage-report.xml"
 
 dependencies:
   - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0
