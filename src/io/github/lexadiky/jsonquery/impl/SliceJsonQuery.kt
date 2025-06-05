@@ -7,7 +7,8 @@ import kotlinx.serialization.json.JsonNull
 import kotlin.jvm.JvmInline
 
 @JvmInline
-internal value class SliceJsonQuery(private val range: IntRange): JsonQuery {
+@Suppress("SwallowedException", "ReturnCount")
+internal value class SliceJsonQuery(private val range: IntRange) : JsonQuery {
     override fun resolve(json: JsonElement): JsonElement {
         if (json !is JsonArray) return JsonNull
 

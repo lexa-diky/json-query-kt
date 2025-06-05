@@ -11,6 +11,7 @@ class SelectJsonQuery(
     private val properties: List<String>
 ) : JsonQuery {
 
+    @Suppress("ReturnCount")
     override fun resolve(json: JsonElement): JsonElement {
         when (json) {
             is JsonObject -> {
