@@ -14,10 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Test
         run: ./amper test
-      - name: Generate Kover Report
-        run: ./gradlew koverXmlReport
       - uses: actions/upload-artifact@v4
-        name: Upload Kover Report
+        name: Upload Junit Report
         if: ${{ !cancelled() }}
         with:
           name: test-results
