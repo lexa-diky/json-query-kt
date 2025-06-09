@@ -10,4 +10,8 @@ internal value class MapJsonQuery(private val transform: (JsonElement) -> JsonEl
     override fun resolve(json: JsonElement): JsonElement {
         return transform(json)
     }
+
+    override fun toString(): String {
+        return "map()"
+    }
 }

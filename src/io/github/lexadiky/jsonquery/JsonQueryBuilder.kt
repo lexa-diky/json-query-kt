@@ -46,8 +46,8 @@ value class JsonQueryBuilder(internal val parent: JsonQuery? = null) {
         SelectJsonQuery(properties.toList())
     }
 
-    fun flatten(): JsonQueryBuilder = buildup {
-        FlattenJsonQuery()
+    fun flatten(recursive: Boolean = false): JsonQueryBuilder = buildup {
+        FlattenJsonQuery(recursive)
     }
 
     fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder = buildup {
