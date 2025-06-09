@@ -10,7 +10,7 @@ import kotlin.jvm.JvmInline
 
 @JvmInline
 @Suppress("ReturnCount")
-internal value class PathJsonQuery(private val segments: List<String>) : JsonQuery {
+internal value class PathJsonQuery(internal val segments: List<String>) : JsonQuery {
     override fun resolve(json: JsonElement): JsonElement {
         var current: JsonElement? = json
         for ((index, segment) in segments.withIndex()) {

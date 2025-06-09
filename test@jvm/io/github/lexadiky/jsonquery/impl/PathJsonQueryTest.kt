@@ -1,5 +1,6 @@
 package io.github.lexadiky.jsonquery.impl
 
+import io.github.lexadiky.jsonquery.JsonQuery
 import io.github.lexadiky.jsonquery.query
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonPrimitive
@@ -80,5 +81,27 @@ class PathJsonQueryTest {
         }
 
         assertEquals(JsonNull, resolved)
+    }
+
+    @Test
+    fun `joining multiple path segments, optimization`() {
+        val element = buildJsonObject {
+            putJsonObject("a") {
+                putJsonObject("b") {
+                    put("c", JsonPrimitive("value"))
+                }
+            }
+        }
+
+        val query = JsonQuery {
+            path("a").path("b").path("c")
+        }
+
+        val resolved  = query.resolve(element)
+
+        assertEquals(JsonPrimitive("value"), resolved)
+
+        assertIs<FinalizedJsonQuery>(query)
+        assertIs<PathJsonQuery>(query.query)
     }
 }

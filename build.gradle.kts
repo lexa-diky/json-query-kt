@@ -6,7 +6,13 @@ plugins {
 
 detekt {
     source.from("src")
- }
+}
+
+tasks.withType<Test>().configureEach {
+    reports {
+        junitXml.required = true
+    }
+}
 
 tasks.withType<Detekt>().configureEach {
     reports {

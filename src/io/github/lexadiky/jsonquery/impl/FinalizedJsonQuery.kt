@@ -5,7 +5,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlin.jvm.JvmInline
 
 @JvmInline
-internal value class FinalizedJsonQuery(private val query: JsonQuery) : JsonQuery {
+internal value class FinalizedJsonQuery(internal val query: JsonQuery) : JsonQuery {
     override fun resolve(json: JsonElement): JsonElement {
         return query.resolve(json)
     }

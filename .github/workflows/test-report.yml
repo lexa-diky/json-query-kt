@@ -16,5 +16,5 @@ jobs:
         with:
           artifact: test-results
           name: Tests
-          path: 'coverage-report.xml'
+          path: '*.xml'
           reporter: java-junit

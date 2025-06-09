@@ -15,6 +15,14 @@ import kotlin.jvm.JvmInline
 value class JsonQueryBuilder(internal val parent: JsonQuery? = null) {
 
     fun path(vararg segments: String): JsonQueryBuilder {
+        if (parent is PathJsonQuery) {
+           return JsonQueryBuilder(
+               PathJsonQuery(
+                   parent.segments + segments
+               )
+           )
+        }
+
         val objPath = segments.flatMap { segment -> segment.split(".") }
         return if (parent != null) {
             JsonQueryBuilder(JoinQueryBuilder(parent, PathJsonQuery(objPath)))

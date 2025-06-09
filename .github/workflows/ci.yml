@@ -21,5 +21,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: test-results
-          path: build/reports/coverage/coverage-report.xml
+          path: build/reports/json-query-kt/jvm/TEST-junit-jupiter.xml
 
