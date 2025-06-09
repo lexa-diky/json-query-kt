@@ -4,7 +4,7 @@ import io.github.lexadiky.jsonquery.impl.FinalizedJsonQuery
 import kotlinx.serialization.json.JsonElement
 
 interface JsonQuery {
-    fun resolve(json: JsonElement): JsonElement
+    fun select(json: JsonElement): JsonElement
 }
 
 fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
@@ -12,5 +12,5 @@ fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
 }
 
 fun JsonElement.query(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonElement {
-    return JsonQuery(fn).resolve(this)
+    return JsonQuery(fn).select(this)
 }

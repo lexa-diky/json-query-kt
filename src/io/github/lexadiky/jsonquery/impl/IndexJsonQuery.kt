@@ -11,7 +11,7 @@ internal value class IndexJsonQuery(
     private val index: Int = 0,
 ) : JsonQuery {
 
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         if (json is JsonArray) {
             return json.getOrNull(index) ?: JsonNull
         } else {

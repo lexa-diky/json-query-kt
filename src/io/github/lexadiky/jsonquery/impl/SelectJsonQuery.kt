@@ -12,7 +12,7 @@ class SelectJsonQuery(
 ) : JsonQuery {
 
     @Suppress("ReturnCount")
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         when (json) {
             is JsonObject -> {
                 return JsonObject(
@@ -21,7 +21,7 @@ class SelectJsonQuery(
             }
 
             is JsonArray -> {
-                return JsonArray(json.mapJsonNotNull { resolve(it) })
+                return JsonArray(json.mapJsonNotNull { select(it) })
             }
 
             else -> {

@@ -11,7 +11,7 @@ import kotlin.jvm.JvmInline
 @JvmInline
 @Suppress("ReturnCount")
 internal value class PathJsonQuery(internal val segments: List<String>) : JsonQuery {
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         var current: JsonElement? = json
         for ((index, segment) in segments.withIndex()) {
             when (current) {
@@ -19,7 +19,7 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
                 is JsonObject -> current = current.jsonObject[segment]
                 is JsonArray -> return ArraySpreadJsonQuery(
                     PathJsonQuery(segments.subList(index, segments.size))
-                ).resolve(current)
+                ).select(current)
 
                 else -> return JsonNull
             }

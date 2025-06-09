@@ -9,7 +9,7 @@ import kotlin.jvm.JvmInline
 @JvmInline
 @Suppress("SwallowedException", "ReturnCount")
 internal value class SliceJsonQuery(private val range: IntRange) : JsonQuery {
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         if (json !is JsonArray) return JsonNull
 
         val size = json.size

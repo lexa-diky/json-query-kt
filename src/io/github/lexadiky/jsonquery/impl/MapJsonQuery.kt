@@ -7,7 +7,7 @@ import kotlin.jvm.JvmInline
 @JvmInline
 internal value class MapJsonQuery(private val transform: (JsonElement) -> JsonElement) : JsonQuery {
 
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         return transform(json)
     }
 

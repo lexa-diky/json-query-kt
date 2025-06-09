@@ -11,7 +11,7 @@ import kotlin.jvm.JvmInline
 internal value class ConditionalFilterJsonQuery(
     private val predicate: (JsonPrimitive) -> Boolean
 ) : JsonQuery {
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         return when (json) {
             is JsonArray -> {
                 JsonArray(

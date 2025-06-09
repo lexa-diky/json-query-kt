@@ -8,8 +8,8 @@ internal class JoinQueryBuilder(
     private val child: JsonQuery
 ) : JsonQuery {
 
-    override fun resolve(json: JsonElement): JsonElement {
-        return parent.resolve(json).let(child::resolve)
+    override fun select(json: JsonElement): JsonElement {
+        return parent.select(json).let(child::select)
     }
 
     override fun toString(): String {

@@ -6,8 +6,8 @@ import kotlin.jvm.JvmInline
 
 @JvmInline
 internal value class FinalizedJsonQuery(internal val query: JsonQuery) : JsonQuery {
-    override fun resolve(json: JsonElement): JsonElement {
-        return query.resolve(json)
+    override fun select(json: JsonElement): JsonElement {
+        return query.select(json)
     }
 
     override fun toString(): String = "query($query)"

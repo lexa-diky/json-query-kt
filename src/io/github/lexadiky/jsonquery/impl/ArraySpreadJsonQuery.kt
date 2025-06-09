@@ -11,8 +11,8 @@ import kotlin.jvm.JvmInline
 internal value class ArraySpreadJsonQuery(
     private val query: JsonQuery,
 ) : JsonQuery {
-    override fun resolve(json: JsonElement): JsonElement {
+    override fun select(json: JsonElement): JsonElement {
         if (json !is JsonArray) return JsonNull
-        return JsonArray(json.mapJsonNotNull { element -> query.resolve(element) })
+        return JsonArray(json.mapJsonNotNull { element -> query.select(element) })
     }
 }

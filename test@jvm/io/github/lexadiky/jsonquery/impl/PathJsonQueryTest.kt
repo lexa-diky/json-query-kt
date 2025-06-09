@@ -97,7 +97,7 @@ class PathJsonQueryTest {
             path("a").path("b").path("c")
         }
 
-        val resolved  = query.resolve(element)
+        val resolved  = query.select(element)
 
         assertEquals(JsonPrimitive("value"), resolved)
 
