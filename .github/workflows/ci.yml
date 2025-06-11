@@ -13,11 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Test
-        run: ./amper test
+        run: ./gradlew test --no-daemon
       - uses: actions/upload-artifact@v4
         name: Upload Junit Report
         if: ${{ !cancelled() }}
         with:
           name: test-results
-          path: build/reports/json-query-kt/jvm/TEST-junit-jupiter.xml
+          path: build/test-results/test/TEST-*.xml
 

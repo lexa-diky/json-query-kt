@@ -1,21 +1,26 @@
-import io.gitlab.arturbosch.detekt.Detekt
-
 plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.23.8"
+    kotlin("jvm") version "2.1.20"
 }
 
-detekt {
-    source.from("src")
+group = "io.github.lexa-diky"
+version = "0.0.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
+    testImplementation(kotlin("test"))
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
     reports {
         junitXml.required = true
-    }
-}
-
-tasks.withType<Detekt>().configureEach {
-    reports {
-        xml.required.set(true)
     }
 }
