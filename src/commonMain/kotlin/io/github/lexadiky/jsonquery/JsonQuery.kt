@@ -8,7 +8,10 @@ interface JsonQuery {
 }
 
 fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
-    return FinalizedJsonQuery(JsonQueryBuilder().fn().parent!!)
+    return FinalizedJsonQuery(
+        JsonQueryBuilder().fn().parent
+            ?: error("Query must have at least one element")
+    )
 }
 
 fun JsonElement.query(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonElement {

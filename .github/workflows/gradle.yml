@@ -31,7 +31,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Test with Gradle
-        run: ./gradlew jvmJar jvmTest
+        run: ./gradlew jvmJar jvmTest detektJvmMain
       - uses: actions/upload-artifact@v4
         name: Upload Junit Report
         if: ${{ !cancelled() }}

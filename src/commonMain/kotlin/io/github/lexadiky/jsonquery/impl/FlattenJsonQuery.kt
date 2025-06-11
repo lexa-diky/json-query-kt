@@ -7,6 +7,8 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.jsonArray
 
 class FlattenJsonQuery(private val recursive: Boolean) : JsonQuery {
+
+    @Suppress("ReturnCount")
     override fun select(json: JsonElement): JsonElement {
         if (json !is JsonArray) return JsonNull
 

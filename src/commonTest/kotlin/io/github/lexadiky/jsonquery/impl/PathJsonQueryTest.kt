@@ -6,7 +6,9 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.putJsonObject
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertIs
 
 class PathJsonQueryTest {
 
@@ -16,7 +18,7 @@ class PathJsonQueryTest {
             put("pathElement", JsonPrimitive("hello"))
         }
 
-        val resolved  = element.query {
+        val resolved = element.query {
             path("pathElement")
         }
 
@@ -31,7 +33,7 @@ class PathJsonQueryTest {
             }
         }
 
-        val resolved  = element.query {
+        val resolved = element.query {
             path("some", "other")
         }
 
@@ -46,7 +48,7 @@ class PathJsonQueryTest {
             }
         }
 
-        val resolved  = element.query {
+        val resolved = element.query {
             path("some.other")
         }
 
@@ -61,7 +63,7 @@ class PathJsonQueryTest {
             }
         }
 
-        val resolved  = element.query {
+        val resolved = element.query {
             path("some.otherNonExistent")
         }
 
@@ -76,7 +78,7 @@ class PathJsonQueryTest {
             }
         }
 
-        val resolved  = element.query {
+        val resolved = element.query {
             path("some.otherNonExistent.a.b.c.d")
         }
 
@@ -97,7 +99,7 @@ class PathJsonQueryTest {
             path("a").path("b").path("c")
         }
 
-        val resolved  = query.select(element)
+        val resolved = query.select(element)
 
         assertEquals(JsonPrimitive("value"), resolved)
 
