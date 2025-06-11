@@ -43,8 +43,10 @@ jobs:
           distribution: 'temurin'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+      - name: Test with Gradle
+        run: ./gradlew jvmTest
       - name: Build with Gradle
-        run: ./gradlew build jvmTest
+        uses: gradle/gradle-build-action@ce999babab2de1c4b649dc15f0ee67e6246c994f
         with:
           arguments: ${{ matrix.target }}
       - uses: actions/upload-artifact@v4
