@@ -36,7 +36,7 @@ tasks.withType<Test>().configureEach {
 
 mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
+    signAllPublications()
     coordinates(
         groupId = group.toString(),
         artifactId = "json-query",
