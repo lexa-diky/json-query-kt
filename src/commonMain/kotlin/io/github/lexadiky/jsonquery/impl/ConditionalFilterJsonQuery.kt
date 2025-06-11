@@ -9,13 +9,13 @@ import kotlin.jvm.JvmInline
 
 @JvmInline
 internal value class ConditionalFilterJsonQuery(
-    private val predicate: (JsonPrimitive) -> Boolean
+    private val predicate: (JsonElement) -> Boolean
 ) : JsonQuery {
     override fun select(json: JsonElement): JsonElement {
         return when (json) {
             is JsonArray -> {
                 JsonArray(
-                    json.filterIsInstance<JsonPrimitive>()
+                    json.filterIsInstance<JsonElement>()
                         .filter(predicate)
                 )
             }

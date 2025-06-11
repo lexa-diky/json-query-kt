@@ -3,6 +3,7 @@ package io.github.lexadiky.jsonquery.impl
 import io.github.lexadiky.jsonquery.JsonQuery
 import kotlinx.serialization.json.JsonElement
 
+@PublishedApi
 internal class JoinQueryBuilder(
     private val parent: JsonQuery,
     private val child: JsonQuery

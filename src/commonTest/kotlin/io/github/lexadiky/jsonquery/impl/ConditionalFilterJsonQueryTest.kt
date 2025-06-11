@@ -3,6 +3,7 @@ package io.github.lexadiky.jsonquery.impl
 import io.github.lexadiky.jsonquery.query
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonArray
+import kotlinx.serialization.json.jsonPrimitive
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -18,7 +19,7 @@ class ConditionalFilterJsonQueryTest {
         }
 
         val resolved = element.query {
-            filter { it.content != "3"}
+            filter { it.jsonPrimitive.content != "3"}
         }
 
         assertEquals(
