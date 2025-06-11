@@ -27,7 +27,7 @@ class FlattenJsonQueryTest {
     }
 
     @Test
-    fun `flattening level 3, recursive`() {
+    fun `flattening level 3 recursive`() {
         val element = buildJsonArray {
             repeat(5) {
                 addJsonArray {

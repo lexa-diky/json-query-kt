@@ -84,7 +84,7 @@ class PathJsonQueryTest {
     }
 
     @Test
-    fun `joining multiple path segments, optimization`() {
+    fun `joining multiple path segments optimization`() {
         val element = buildJsonObject {
             putJsonObject("a") {
                 putJsonObject("b") {
