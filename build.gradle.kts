@@ -1,5 +1,4 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     kotlin("multiplatform") version "2.1.20"
@@ -32,5 +31,33 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
     reports {
         junitXml.required = true
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
+    coordinates(
+        groupId = group.toString(),
+        artifactId = "json-query",
+        version = version.toString()
+    )
+
+    pom {
+        name = "json-query-kt"
+        description = "Simple and powerful JSON query library for Kotlin"
+        inceptionYear = "2025"
+        url = "https://github.com/lexa-diky/json-query-kt"
+
+        licenses {
+            license {
+                name = "MIT License"
+                url = "https://opensource.org/license/mit/"
+                distribution = "repo"
+            }
+        }
+        scm {
+            url = "https://github.com/lexa-diky/json-query-kt"
+        }
     }
 }
