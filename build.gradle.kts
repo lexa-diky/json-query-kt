@@ -56,6 +56,13 @@ mavenPublishing {
                 distribution = "repo"
             }
         }
+        developers {
+            developer {
+                id = "lexa-diky"
+                name = "Aleksei Iakovlev"
+                url = "https://github.com/lexa-diky"
+            }
+        }
         scm {
             url = "https://github.com/lexa-diky/json-query-kt"
         }
