@@ -16,7 +16,7 @@ internal class MapTypedJsonQuery<F, T>(
 
     override fun select(json: JsonElement): JsonElement {
         val convertedType = json.asTyped<F>(inType) ?: return JsonNull
-        return transform(convertedType).asTypedBack(outType)
+        return transform(convertedType).asTypedBack(outType) ?: JsonNull
     }
 
     override fun toString(): String {
