@@ -40,7 +40,7 @@ internal class AutoJsonQueryCollector<T>(
  * }
  * ```
  */
-inline fun <reified T> JsonQueryCollector(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryCollector<T> {
+inline fun <reified T> JsonQueryAs(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryCollector<T> {
     val builder = JsonQueryBuilder().fn()
     return AutoJsonQueryCollector(
         builder.parent
@@ -50,8 +50,8 @@ inline fun <reified T> JsonQueryCollector(fn: JsonQueryBuilder.() -> JsonQueryBu
     )
 }
 
-inline fun <reified T> JsonElement.cquery(
+inline fun <reified T> JsonElement.queryAs(
     fn: JsonQueryBuilder.() -> JsonQueryBuilder
 ): T {
-    return JsonQueryCollector<T>(fn).collect(this)
+    return JsonQueryAs<T>(fn).collect(this)
 }
