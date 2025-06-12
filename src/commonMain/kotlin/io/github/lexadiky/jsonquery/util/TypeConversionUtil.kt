@@ -17,22 +17,22 @@ import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
 // Kotlin primitives
-val TC_BYTE = typeOf<Byte>().classifier
-val TC_SHORT = typeOf<Short>().classifier
-val TC_INT = typeOf<Int>().classifier
-val TC_LONG = typeOf<Long>().classifier
-val TC_FLOAT = typeOf<Float>().classifier
-val TC_DOUBLE = typeOf<Double>().classifier
-val TC_BOOLEAN = typeOf<Boolean>().classifier
-val TC_STRING = typeOf<String>().classifier
+private val TC_BYTE = typeOf<Byte>().classifier
+private val TC_SHORT = typeOf<Short>().classifier
+private val TC_INT = typeOf<Int>().classifier
+private val TC_LONG = typeOf<Long>().classifier
+private val TC_FLOAT = typeOf<Float>().classifier
+private val TC_DOUBLE = typeOf<Double>().classifier
+private val TC_BOOLEAN = typeOf<Boolean>().classifier
+private val TC_STRING = typeOf<String>().classifier
 
 // JSON types
-val TC_JSON_ELEMENT = typeOf<JsonElement>().classifier
-val TC_JSON_OBJECT = typeOf<JsonObject>().classifier
-val TC_JSON_PRIMITIVE = typeOf<JsonPrimitive>().classifier
-val TC_JSON_ARRAY = typeOf<JsonArray>().classifier
+private val TC_JSON_ELEMENT = typeOf<JsonElement>().classifier
+private val TC_JSON_OBJECT = typeOf<JsonObject>().classifier
+private val TC_JSON_PRIMITIVE = typeOf<JsonPrimitive>().classifier
+private val TC_JSON_ARRAY = typeOf<JsonArray>().classifier
 
-val TC_JSON_TYPES_SET = setOf(
+private val TC_JSON_TYPES_SET = setOf(
     TC_JSON_ELEMENT,
     TC_JSON_OBJECT,
     TC_JSON_PRIMITIVE,
@@ -40,8 +40,8 @@ val TC_JSON_TYPES_SET = setOf(
 )
 
 // Collection types
-val TC_LIST = typeOf<List<*>>().classifier
-val TC_MAP = typeOf<Map<*, *>>().classifier
+private val TC_LIST = typeOf<List<*>>().classifier
+private val TC_MAP = typeOf<Map<*, *>>().classifier
 
 @Suppress("UNCHECKED_CAST", "ReturnCount", "CyclomaticComplexMethod")
 internal fun <T> JsonElement.asTyped(type: KType): T? {

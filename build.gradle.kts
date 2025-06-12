@@ -5,6 +5,7 @@ plugins {
     kotlin("multiplatform") version "2.1.20"
     id("com.vanniktech.maven.publish") version "0.29.0"
     id("io.gitlab.arturbosch.detekt") version ("1.23.8")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.17.0"
 }
 
 group = "io.github.lexa-diky"
