@@ -22,6 +22,8 @@ implementation("io.github.lexa-diky:json-query:<LATEST>")
 
 ## Quick Examples 🚦
 
+### [Kotlin Notebook](./example/notebook.ipynb)
+
 ### Extract a field
 
 ```kotlin

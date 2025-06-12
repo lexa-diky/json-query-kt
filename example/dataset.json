@@ -1,0 +1,105 @@
+{
+  "shelter": {
+    "name": "Purrfect Paws Cat Shelter",
+    "location": {
+      "address": "123 Whisker Lane",
+      "city": "Meowtown",
+      "state": "CA",
+      "zip": "90210"
+    },
+    "cats": [
+      {
+        "id": "cat001",
+        "name": "Mittens",
+        "age": 3,
+        "breed": "Maine Coon",
+        "color": "Tabby",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": ["cat002", "cat003"]
+      },
+      {
+        "id": "cat002",
+        "name": "Shadow",
+        "age": 2,
+        "breed": "Siamese",
+        "color": "Seal Point",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Alice Johnson",
+          "contact": {
+            "phone": "555-1234",
+            "email": "alice.j@example.com"
+          },
+          "address": {
+            "street": "456 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2022-12-01",
+            "type": "Neutering",
+            "details": "Successful"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": ["cat001"]
+      },
+      {
+        "id": "cat003",
+        "name": "Mumpkin",
+        "age": 1,
+        "breed": "British Shorthair",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Jingle Ball"
+        ],
+        "friends": ["cat001"]
+      }
+    ],
+    "staff": [
+      {
+        "id": "staff01",
+        "name": "Linda Meowers",
+        "role": "Manager"
+      },
+      {
+        "id": "staff02",
+        "name": "Tom Catson",
+        "role": "Veterinarian"
+      }
+    ],
+    "events": [
+      {
+        "name": "Adoption Day",
+        "date": "2024-07-15",
+        "description": "Find your purrfect companion!"
+      }
+    ]
+  }
+}
