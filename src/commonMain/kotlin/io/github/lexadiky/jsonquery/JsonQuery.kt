@@ -41,3 +41,15 @@ fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
 fun JsonElement.query(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonElement {
     return JsonQuery(fn).select(this)
 }
+
+/**
+ * Executes a query, defined [path], on this [JsonElement].
+ *
+ * Example usage:
+ * ```kotlin
+ * val result = jsonElement.query { path("users").filter { ... } }
+ * ```
+ */
+fun JsonElement.query(vararg path: String): JsonElement {
+    return query { path(segments = path) }
+}

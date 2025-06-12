@@ -6,6 +6,7 @@ import io.github.lexadiky.jsonquery.impl.FlattenJsonQuery
 import io.github.lexadiky.jsonquery.impl.IndexJsonQuery
 import io.github.lexadiky.jsonquery.impl.JoinQueryBuilder
 import io.github.lexadiky.jsonquery.impl.MapJsonQuery
+import io.github.lexadiky.jsonquery.impl.MapTypedJsonQuery
 import io.github.lexadiky.jsonquery.impl.PathJsonQuery
 import io.github.lexadiky.jsonquery.impl.SelectJsonQuery
 import io.github.lexadiky.jsonquery.impl.SliceJsonQuery
@@ -103,6 +104,13 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
      */
     fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder = buildup {
         MapJsonQuery(transform)
+    }
+
+    /**
+     * Maps each element using the given [transform] function and types [F], [T].
+     */
+    inline fun <reified F, reified T> mapT(noinline transform: (F) -> T): JsonQueryBuilder = buildup {
+        MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform)
     }
 
     @PublishedApi
