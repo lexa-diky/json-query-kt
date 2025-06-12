@@ -5,6 +5,14 @@ import kotlinx.serialization.json.JsonElement
 import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
+/**
+ * A collector interface for collecting results from a [JsonElement] based on a [JsonQuery].
+ *
+ * Implementations of this interface should provide a way to collect and convert the selected
+ * elements into the desired type [T].
+ *
+ * Commonly implementers have contractor with [JsonQuery] and [KType] parameters.
+ */
 interface JsonQueryCollector<T> {
 
     fun collect(element: JsonElement): T
@@ -31,7 +39,7 @@ internal class AutoJsonQueryCollector<T>(
 
 
 /**
- * Builds a [JsonQuery] using a DSL-style [fn] block with [JsonQueryBuilder].
+ * Builds a [JsonQuery] using a DSL-style [query] block with [JsonQueryBuilder].
  *
  * Example usage:
  * ```kotlin
@@ -41,9 +49,12 @@ internal class AutoJsonQueryCollector<T>(
  * ```
  */
 @Suppress("FunctionNaming")
-inline fun <reified T> JsonQueryAs(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryCollector<T> {
-    val builder = JsonQueryBuilder().fn()
-    return AutoJsonQueryCollector(
+inline fun <reified T> JsonQueryAs(
+    collector: (JsonQuery, KType) -> JsonQueryCollector<T> = ::AutoJsonQueryCollector,
+    query: JsonQueryBuilder.() -> JsonQueryBuilder
+): JsonQueryCollector<T> {
+    val builder = JsonQueryBuilder().query()
+    return collector(
         builder.parent
             ?: builder.identity().parent
             ?: error("No query defined"),
@@ -51,8 +62,18 @@ inline fun <reified T> JsonQueryAs(fn: JsonQueryBuilder.() -> JsonQueryBuilder):
     )
 }
 
+/**
+ * Executes a query, defined by [fn], on this [JsonElement].
+ * And returns the converted result as type [T].
+ *
+ * Example usage:
+ * ```kotlin
+ * val result = jsonElement.queryAs<List<Int>> { path("users.age").filter { ... } }
+ * ```
+ */
 inline fun <reified T> JsonElement.queryAs(
+    collector: (JsonQuery, KType) -> JsonQueryCollector<T> = ::AutoJsonQueryCollector,
     fn: JsonQueryBuilder.() -> JsonQueryBuilder
 ): T {
-    return JsonQueryAs<T>(fn).collect(this)
+    return JsonQueryAs<T>(collector, fn).collect(this)
 }

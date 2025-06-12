@@ -1,6 +1,7 @@
 package io.github.lexadiky.jsonquery
 
 import io.github.lexadiky.jsonquery.impl.FinalizedJsonQuery
+import io.github.lexadiky.jsonquery.impl.IdentityJsonQuery
 import kotlinx.serialization.json.JsonElement
 
 /**
@@ -24,9 +25,10 @@ interface JsonQuery {
  * ```
  */
 fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
+    val builder = JsonQueryBuilder().fn()
+
     return FinalizedJsonQuery(
-        JsonQueryBuilder().fn().parent
-            ?: error("Query must have at least one element")
+        builder.parent ?: IdentityJsonQuery()
     )
 }
 

@@ -124,6 +124,10 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
         MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform)
     }
 
+    /**
+     * Creates an identity query that returns the input JSON element unchanged.
+     * This is useful for building custom queries that may not modify the input.
+     */
     fun identity(): JsonQueryBuilder {
         if (parent is IdentityJsonQuery) {
             return this
