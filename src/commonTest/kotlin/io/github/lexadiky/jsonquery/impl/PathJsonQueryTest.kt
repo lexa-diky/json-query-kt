@@ -41,6 +41,21 @@ class PathJsonQueryTest {
     }
 
     @Test
+    fun `element from complex path with accessor dsl`() {
+        val element = buildJsonObject {
+            putJsonObject("some") {
+                put("other", JsonPrimitive("hello"))
+            }
+        }
+
+        val resolved = element.query {
+            this["some", "other"]
+        }
+
+        assertEquals(JsonPrimitive("hello"), resolved)
+    }
+
+    @Test
     fun `element from complex path dot separated`() {
         val element = buildJsonObject {
             putJsonObject("some") {

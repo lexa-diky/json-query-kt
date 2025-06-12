@@ -35,6 +35,8 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
         IndexJsonQuery(index)
     }
 
+    operator fun get(vararg segments: String): JsonQueryBuilder = path(segments = segments)
+
     operator fun get(range: IntRange): JsonQueryBuilder = buildup {
         SliceJsonQuery(range)
     }
