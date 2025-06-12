@@ -4,6 +4,7 @@ import io.github.lexadiky.jsonquery.impl.ConditionalFilterJsonQuery
 import io.github.lexadiky.jsonquery.impl.ConditionalTypedFilterJsonQuery
 import io.github.lexadiky.jsonquery.impl.EachJsonQuery
 import io.github.lexadiky.jsonquery.impl.FlattenJsonQuery
+import io.github.lexadiky.jsonquery.impl.IdentityJsonQuery
 import io.github.lexadiky.jsonquery.impl.IndexJsonQuery
 import io.github.lexadiky.jsonquery.impl.JoinQueryBuilder
 import io.github.lexadiky.jsonquery.impl.MapJsonQuery
@@ -121,6 +122,10 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
      */
     inline fun <reified F, reified T> mapT(noinline transform: (F) -> T): JsonQueryBuilder = buildup {
         MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform)
+    }
+
+    fun identity(): JsonQueryBuilder = buildup {
+        IdentityJsonQuery()
     }
 
     @PublishedApi

@@ -26,6 +26,19 @@ val TC_DOUBLE = typeOf<Double>().classifier
 val TC_BOOLEAN = typeOf<Boolean>().classifier
 val TC_STRING = typeOf<String>().classifier
 
+// JSON types
+val TC_JSON_ELEMENT = typeOf<JsonElement>().classifier
+val TC_JSON_OBJECT = typeOf<JsonObject>().classifier
+val TC_JSON_PRIMITIVE = typeOf<JsonPrimitive>().classifier
+val TC_JSON_ARRAY = typeOf<JsonArray>().classifier
+
+val TC_JSON_TYPES_SET = setOf(
+    TC_JSON_ELEMENT,
+    TC_JSON_OBJECT,
+    TC_JSON_PRIMITIVE,
+    TC_JSON_ARRAY
+)
+
 // Collection types
 val TC_LIST = typeOf<List<*>>().classifier
 val TC_MAP = typeOf<Map<*, *>>().classifier
@@ -44,6 +57,10 @@ internal fun <T> JsonElement.asTyped(type: KType): T? {
             val typed = v.asTyped<Any>(typeArgument)
             typed
         }.filterValues { it != null } as T
+    }
+
+    if (TC_JSON_TYPES_SET.contains(type.classifier)) {
+        return this as T
     }
 
     if (this !is JsonPrimitive) return null
