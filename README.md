@@ -24,44 +24,54 @@ implementation("io.github.lexa-diky:json-query:<LATEST>")
 
 ### [Kotlin Notebook](./example/notebook.ipynb)
 
-### Extract a field
+### Real-World Examples
 
 ```kotlin
-val json = Json.parseToJsonElement("""{"name": "Alice", "age": 25, "address": {"city": "Wonderland"}}""")
-println(json.query { path("name") }) // JsonPrimitive("Alice")
-println(json.query { path("address.city") }) // JsonPrimitive("Wonderland")
-println(json.query { path("address", "city") }) // JsonPrimitive("Wonderland")
-```
+val json = Json.parseToJsonElement(File("dataset.json").readText())
 
-### Aggregate: min, max, average
+// Accessing a nested property
+println(json.query { path("shelter.name") })
 
-```kotlin
-val json = Json.parseToJsonElement("""[1, 2, 3, 4, 5]""")
-println(json.query { min() }) // JsonPrimitive(1)
-println(json.query { max() }) // JsonPrimitive(5)
-println(json.query { average() }) // JsonPrimitive(3)
-```
+// Accessing an array element by index
+println(json.query { path("shelter.cats")[0].path("name") })
+println(json.query { path("shelter.cats.0.name") })
+println(json.query("shelter.cats.0.name"))
 
-### Filter, map, flatten
+// Accessing all names in an array
+println(json.query { path("shelter.cats.name") })
 
-```kotlin
-val json = Json.parseToJsonElement("""{"numbers": [1, 2, 3, 4, 5]}""")
-val evens =
-    println(
-        json.query {
-            path("numbers")
-                .filter { it.jsonPrimitive.int % 2 == 0 }
+// Filtering array elements
+println(json.query { path("shelter.cats.name").filterT<String> { it.startsWith("M") } })
+
+// Slicing arrays
+println(json.query { path("shelter.cats")[0..1].path("name") })
+
+// Statistical operations
+println(json.query { path("shelter.cats.age").max() })
+println(json.query { path("shelter.cats.age").min() })
+println(json.query { path("shelter.cats.age").average() })
+println(json.query { path("shelter.cats.age").sum() })
+println(json.query { path("shelter.cats.age").first() })
+println(json.query { path("shelter.cats.age").last() })
+println(json.query { path("shelter.cats.age").filterT<Int> { it >= 2 }.size() })
+
+// Selecting specific fields
+println(json.query { path("shelter.cats.0").select("name", "age") })
+println(json.query { path("shelter.cats").select("name", "age") })
+
+// Aggregating data into objects
+println(json.query {
+    path("shelter.cats").qmap {
+        buildJsonObject {
+            put("names", query { path("name") })
+            put("ages", query { path("age") })
         }
-    ) // JsonArray([2, 4])
+    }
+})
 
-val nested = Json.parseToJsonElement("""[[1,2],[3,4]]""")
-println(nested.query { flatten() }) // JsonArray([1,2,3,4])
+// Applying a query to each element in an array
+println(json.query { 
+    path("shelter.cats.name")
+        .each { mapT<String, String> { it.uppercase() } } 
+})
 ```
-
-## API Overview 📚
-
-- `path(vararg segments: String)`: Traverse object keys
-- `select(vararg properties: String)`: Select object properties
-- `filter(predicate: (JsonPrimitive) -> Boolean)`: Filter array elements
-- `flatten()`: Flatten nested arrays
-- `get(index: Int)`, `get(range: IntRange)`: Index or slice arrays

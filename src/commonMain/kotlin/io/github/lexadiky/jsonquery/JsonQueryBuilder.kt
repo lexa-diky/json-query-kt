@@ -2,6 +2,7 @@ package io.github.lexadiky.jsonquery
 
 import io.github.lexadiky.jsonquery.impl.ConditionalFilterJsonQuery
 import io.github.lexadiky.jsonquery.impl.ConditionalTypedFilterJsonQuery
+import io.github.lexadiky.jsonquery.impl.EachJsonQuery
 import io.github.lexadiky.jsonquery.impl.FlattenJsonQuery
 import io.github.lexadiky.jsonquery.impl.IndexJsonQuery
 import io.github.lexadiky.jsonquery.impl.JoinQueryBuilder
@@ -32,6 +33,7 @@ import kotlin.reflect.typeOf
  * @property parent The current composed [JsonQuery] (internal).
  */
 @JvmInline
+@Suppress("TooManyFunctions")
 value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = null) {
     /**
      * Traverse into the given object [segments] (dot notation supported).
@@ -104,6 +106,14 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
      */
     fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder = buildup {
         MapJsonQuery(transform)
+    }
+
+    /**
+     * Runs query on each element and maps the result using the given [transform] function.
+     * If applied to non array elements, it will run on single element
+     */
+    fun each(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryBuilder = buildup {
+        EachJsonQuery(JsonQuery(fn))
     }
 
     /**

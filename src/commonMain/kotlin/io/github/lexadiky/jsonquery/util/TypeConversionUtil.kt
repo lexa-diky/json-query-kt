@@ -28,6 +28,7 @@ internal fun <T> JsonElement.asTyped(type: KType): T? {
     } as T?
 }
 
+@Suppress("CyclomaticComplexMethod")
 internal fun <T> T.asTypedBack(type: KType): JsonPrimitive {
     return when (type) {
         typeOf<Byte>() -> JsonPrimitive((this as? Byte) ?: this.toString().toByte())
