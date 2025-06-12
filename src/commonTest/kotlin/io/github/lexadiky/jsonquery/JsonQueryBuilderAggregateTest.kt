@@ -1,9 +1,11 @@
 package io.github.lexadiky.jsonquery
 
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonPrimitive
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class JsonQueryBuilderAggregateTest {
     private fun array(vararg elements: String): JsonElement =

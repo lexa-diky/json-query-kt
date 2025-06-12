@@ -13,9 +13,29 @@ import kotlinx.serialization.json.JsonElement
 import kotlin.jvm.JvmInline
 import kotlin.reflect.typeOf
 
+/**
+ * A builder for composing JSON queries in a fluent, type-safe DSL style.
+ *
+ * Each method returns a new [JsonQueryBuilder] with the next query operation appended.
+ * Queries can be chained to traverse, filter, map, and transform JSON data.
+ *
+ * Example usage:
+ * ```kotlin
+ * val result = json.query {
+ *     path("users")
+ *     filter { it.jsonPrimitive.int > 18 }
+ *     select("name", "email")
+ * }
+ * ```
+ *
+ * @property parent The current composed [JsonQuery] (internal).
+ */
 @JvmInline
 value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = null) {
-
+    /**
+     * Traverse into the given object [segments] (dot notation supported).
+     * If chained, appends to the current path.
+     */
     fun path(vararg segments: String): JsonQueryBuilder {
         if (parent is PathJsonQuery) {
             return JsonQueryBuilder(
@@ -31,32 +51,56 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
         }
     }
 
+    /**
+     * Selects the element at the given array [index].
+     */
     operator fun get(index: Int): JsonQueryBuilder = buildup {
         IndexJsonQuery(index)
     }
 
+    /**
+     * Traverse into the given object [segments] (dot notation supported).
+     */
     operator fun get(vararg segments: String): JsonQueryBuilder = path(segments = segments)
 
+    /**
+     * Selects a slice of the array using the given [range].
+     */
     operator fun get(range: IntRange): JsonQueryBuilder = buildup {
         SliceJsonQuery(range)
     }
 
+    /**
+     * Filters array elements using the given [condition].
+     */
     fun filter(condition: (JsonElement) -> Boolean): JsonQueryBuilder = buildup {
         ConditionalFilterJsonQuery(condition)
     }
 
+    /**
+     * Filters array elements by type [T] and [condition].
+     */
     inline fun <reified T> filterT(noinline condition: (T) -> Boolean): JsonQueryBuilder = buildup {
         ConditionalTypedFilterJsonQuery(typeOf<T>(), condition)
     }
 
+    /**
+     * Selects the given [properties] from an object.
+     */
     fun select(vararg properties: String): JsonQueryBuilder = buildup {
         SelectJsonQuery(properties.toList())
     }
 
+    /**
+     * Flattens nested arrays. If [recursive] is true, flattens all levels.
+     */
     fun flatten(recursive: Boolean = false): JsonQueryBuilder = buildup {
         FlattenJsonQuery(recursive)
     }
 
+    /**
+     * Maps each element using the given [transform] function.
+     */
     fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder = buildup {
         MapJsonQuery(transform)
     }
