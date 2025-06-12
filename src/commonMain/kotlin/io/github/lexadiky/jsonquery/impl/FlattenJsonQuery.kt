@@ -8,7 +8,8 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonArray
 
-class FlattenJsonQuery(private val recursive: Boolean) : JsonQuery {
+@JvmInline
+internal value class FlattenJsonQuery(private val recursive: Boolean) : JsonQuery {
 
     @Suppress("ReturnCount")
     override fun select(json: JsonElement): JsonElement {

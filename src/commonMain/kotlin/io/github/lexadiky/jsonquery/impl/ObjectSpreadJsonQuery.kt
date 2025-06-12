@@ -5,7 +5,8 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 
-class ObjectSpreadJsonQuery(
+@JvmInline
+internal value class ObjectSpreadJsonQuery(
     private val query: JsonQuery,
 ) : JsonQuery {
 

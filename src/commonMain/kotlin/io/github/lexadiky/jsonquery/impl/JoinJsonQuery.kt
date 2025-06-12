@@ -4,7 +4,7 @@ import io.github.lexadiky.jsonquery.JsonQuery
 import kotlinx.serialization.json.JsonElement
 
 @PublishedApi
-internal class JoinQueryBuilder(
+internal class JoinJsonQuery(
     private val parent: JsonQuery,
     private val child: JsonQuery
 ) : JsonQuery {

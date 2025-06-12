@@ -6,7 +6,7 @@ import io.github.lexadiky.jsonquery.impl.EachJsonQuery
 import io.github.lexadiky.jsonquery.impl.FlattenJsonQuery
 import io.github.lexadiky.jsonquery.impl.IdentityJsonQuery
 import io.github.lexadiky.jsonquery.impl.IndexJsonQuery
-import io.github.lexadiky.jsonquery.impl.JoinQueryBuilder
+import io.github.lexadiky.jsonquery.impl.JoinJsonQuery
 import io.github.lexadiky.jsonquery.impl.MapJsonQuery
 import io.github.lexadiky.jsonquery.impl.MapTypedJsonQuery
 import io.github.lexadiky.jsonquery.impl.PathJsonQuery
@@ -141,7 +141,7 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
     @PublishedApi
     internal inline fun buildup(fn: () -> JsonQuery): JsonQueryBuilder {
         return if (parent != null) {
-            JsonQueryBuilder(JoinQueryBuilder(parent, fn()))
+            JsonQueryBuilder(JoinJsonQuery(parent, fn()))
         } else {
             JsonQueryBuilder(fn())
         }

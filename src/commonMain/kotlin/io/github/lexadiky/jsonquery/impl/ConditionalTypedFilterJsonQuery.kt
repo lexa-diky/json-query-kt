@@ -8,8 +8,10 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonPrimitive
 import kotlin.reflect.KType
 
-class ConditionalTypedFilterJsonQuery<T>(
-    private val type: KType, private val predicate: (T) -> Boolean
+@PublishedApi
+internal class ConditionalTypedFilterJsonQuery<T>(
+    private val type: KType,
+    private val predicate: (T) -> Boolean
 ) : JsonQuery {
     override fun select(json: JsonElement): JsonElement {
         return when (json) {

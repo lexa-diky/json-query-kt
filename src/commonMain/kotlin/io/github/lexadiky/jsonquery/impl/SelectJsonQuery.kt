@@ -7,7 +7,8 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 
-class SelectJsonQuery(
+@JvmInline
+internal value class SelectJsonQuery(
     private val properties: List<String>
 ) : JsonQuery {
 

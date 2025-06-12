@@ -24,6 +24,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("com.lemonappdev:konsist:0.17.3")
             }
         }
     }
