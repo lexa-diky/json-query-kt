@@ -125,8 +125,7 @@ class PathJsonQueryTest {
 
         assertEquals(JsonPrimitive("value"), resolved)
 
-        assertIs<FinalizedJsonQuery>(query)
-        assertIs<PathJsonQuery>(query.query)
+        assertIs<PathJsonQuery>(query)
     }
 
     @Test

@@ -94,3 +94,10 @@ println(json.query {
         .each { mapT<String, String> { it.uppercase() } }
 })
 ```
+
+## Performance
+
+`json-query-kt` is designed to be efficient and fast, it beats standard kotlinx-serialization object mapping in most
+cases, especially for large datasets and/or complex serialization logic.
+
+![benchmark.png](doc/image/benchmark.png)

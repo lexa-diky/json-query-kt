@@ -1,6 +1,5 @@
 package io.github.lexadiky.jsonquery
 
-import io.github.lexadiky.jsonquery.impl.FinalizedJsonQuery
 import io.github.lexadiky.jsonquery.impl.IdentityJsonQuery
 import kotlinx.serialization.json.JsonElement
 
@@ -27,9 +26,7 @@ interface JsonQuery {
 fun JsonQuery(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQuery {
     val builder = JsonQueryBuilder().fn()
 
-    return FinalizedJsonQuery(
-        builder.parent ?: IdentityJsonQuery()
-    )
+    return builder.parent ?: IdentityJsonQuery()
 }
 
 /**

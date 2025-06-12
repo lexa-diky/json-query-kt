@@ -1,0 +1,2388 @@
+{
+  "shelter": {
+    "name": "Purrfect Paws Cat Shelter",
+    "location": {
+      "address": "123 Whisker Lane",
+      "city": "Meowtown",
+      "state": "CA",
+      "zip": "90210"
+    },
+    "cats": [
+      {
+        "id": "cat001",
+        "name": "Mittens",
+        "age": 14,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat003",
+          "cat004",
+          "cat005"
+        ]
+      },
+      {
+        "id": "cat002",
+        "name": "Shadow",
+        "age": 5,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat004",
+          "cat005",
+          "cat006"
+        ]
+      },
+      {
+        "id": "cat003",
+        "name": "Mumpkin",
+        "age": 11,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Feather Wand",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat005",
+          "cat006",
+          "cat007"
+        ]
+      },
+      {
+        "id": "cat004",
+        "name": "CatName004",
+        "age": 5,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat006",
+          "cat007",
+          "cat008"
+        ]
+      },
+      {
+        "id": "cat005",
+        "name": "CatName005",
+        "age": 5,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat007",
+          "cat008",
+          "cat009"
+        ]
+      },
+      {
+        "id": "cat006",
+        "name": "CatName006",
+        "age": 8,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat008",
+          "cat009",
+          "cat010"
+        ]
+      },
+      {
+        "id": "cat007",
+        "name": "CatName007",
+        "age": 3,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat009",
+          "cat010",
+          "cat011"
+        ]
+      },
+      {
+        "id": "cat008",
+        "name": "CatName008",
+        "age": 4,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat010",
+          "cat011",
+          "cat012"
+        ]
+      },
+      {
+        "id": "cat009",
+        "name": "CatName009",
+        "age": 9,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat011",
+          "cat012",
+          "cat013"
+        ]
+      },
+      {
+        "id": "cat010",
+        "name": "CatName010",
+        "age": 2,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 10",
+          "contact": {
+            "phone": "555-1010",
+            "email": "owner10@example.com"
+          },
+          "address": {
+            "street": "110 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Catnip Mouse",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat012",
+          "cat013",
+          "cat014"
+        ]
+      },
+      {
+        "id": "cat011",
+        "name": "CatName011",
+        "age": 1,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Jingle Ball",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat013",
+          "cat014",
+          "cat015"
+        ]
+      },
+      {
+        "id": "cat012",
+        "name": "CatName012",
+        "age": 6,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat014",
+          "cat015",
+          "cat016"
+        ]
+      },
+      {
+        "id": "cat013",
+        "name": "CatName013",
+        "age": 5,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat015",
+          "cat016",
+          "cat017"
+        ]
+      },
+      {
+        "id": "cat014",
+        "name": "CatName014",
+        "age": 6,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Cardboard Box",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat016",
+          "cat017",
+          "cat018"
+        ]
+      },
+      {
+        "id": "cat015",
+        "name": "CatName015",
+        "age": 8,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat017",
+          "cat018",
+          "cat019"
+        ]
+      },
+      {
+        "id": "cat016",
+        "name": "CatName016",
+        "age": 9,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat018",
+          "cat019",
+          "cat020"
+        ]
+      },
+      {
+        "id": "cat017",
+        "name": "CatName017",
+        "age": 3,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat019",
+          "cat020",
+          "cat021"
+        ]
+      },
+      {
+        "id": "cat018",
+        "name": "CatName018",
+        "age": 12,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat020",
+          "cat021",
+          "cat022"
+        ]
+      },
+      {
+        "id": "cat019",
+        "name": "CatName019",
+        "age": 1,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat021",
+          "cat022",
+          "cat023"
+        ]
+      },
+      {
+        "id": "cat020",
+        "name": "CatName020",
+        "age": 5,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 20",
+          "contact": {
+            "phone": "555-1020",
+            "email": "owner20@example.com"
+          },
+          "address": {
+            "street": "120 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Laser Pointer",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat022",
+          "cat023",
+          "cat024"
+        ]
+      },
+      {
+        "id": "cat021",
+        "name": "CatName021",
+        "age": 12,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat023",
+          "cat024",
+          "cat025"
+        ]
+      },
+      {
+        "id": "cat022",
+        "name": "CatName022",
+        "age": 1,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat024",
+          "cat025",
+          "cat026"
+        ]
+      },
+      {
+        "id": "cat023",
+        "name": "CatName023",
+        "age": 3,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat025",
+          "cat026",
+          "cat027"
+        ]
+      },
+      {
+        "id": "cat024",
+        "name": "CatName024",
+        "age": 10,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Catnip Mouse",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat026",
+          "cat027",
+          "cat028"
+        ]
+      },
+      {
+        "id": "cat025",
+        "name": "CatName025",
+        "age": 1,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat027",
+          "cat028",
+          "cat029"
+        ]
+      },
+      {
+        "id": "cat026",
+        "name": "CatName026",
+        "age": 8,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat028",
+          "cat029",
+          "cat030"
+        ]
+      },
+      {
+        "id": "cat027",
+        "name": "CatName027",
+        "age": 13,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat029",
+          "cat030",
+          "cat031"
+        ]
+      },
+      {
+        "id": "cat028",
+        "name": "CatName028",
+        "age": 1,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat030",
+          "cat031",
+          "cat032"
+        ]
+      },
+      {
+        "id": "cat029",
+        "name": "CatName029",
+        "age": 10,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Catnip Mouse",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat031",
+          "cat032",
+          "cat033"
+        ]
+      },
+      {
+        "id": "cat030",
+        "name": "CatName030",
+        "age": 11,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 30",
+          "contact": {
+            "phone": "555-1030",
+            "email": "owner30@example.com"
+          },
+          "address": {
+            "street": "130 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat032",
+          "cat033",
+          "cat034"
+        ]
+      },
+      {
+        "id": "cat031",
+        "name": "CatName031",
+        "age": 12,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Cardboard Box",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat033",
+          "cat034",
+          "cat035"
+        ]
+      },
+      {
+        "id": "cat032",
+        "name": "CatName032",
+        "age": 13,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat034",
+          "cat035",
+          "cat036"
+        ]
+      },
+      {
+        "id": "cat033",
+        "name": "CatName033",
+        "age": 2,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat035",
+          "cat036",
+          "cat037"
+        ]
+      },
+      {
+        "id": "cat034",
+        "name": "CatName034",
+        "age": 11,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat036",
+          "cat037",
+          "cat038"
+        ]
+      },
+      {
+        "id": "cat035",
+        "name": "CatName035",
+        "age": 3,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat037",
+          "cat038",
+          "cat039"
+        ]
+      },
+      {
+        "id": "cat036",
+        "name": "CatName036",
+        "age": 12,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat038",
+          "cat039",
+          "cat040"
+        ]
+      },
+      {
+        "id": "cat037",
+        "name": "CatName037",
+        "age": 4,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat039",
+          "cat040",
+          "cat041"
+        ]
+      },
+      {
+        "id": "cat038",
+        "name": "CatName038",
+        "age": 3,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat040",
+          "cat041",
+          "cat042"
+        ]
+      },
+      {
+        "id": "cat039",
+        "name": "CatName039",
+        "age": 6,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat041",
+          "cat042",
+          "cat043"
+        ]
+      },
+      {
+        "id": "cat040",
+        "name": "CatName040",
+        "age": 4,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 40",
+          "contact": {
+            "phone": "555-1040",
+            "email": "owner40@example.com"
+          },
+          "address": {
+            "street": "140 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat042",
+          "cat043",
+          "cat044"
+        ]
+      },
+      {
+        "id": "cat041",
+        "name": "CatName041",
+        "age": 13,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat043",
+          "cat044",
+          "cat045"
+        ]
+      },
+      {
+        "id": "cat042",
+        "name": "CatName042",
+        "age": 6,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat044",
+          "cat045",
+          "cat046"
+        ]
+      },
+      {
+        "id": "cat043",
+        "name": "CatName043",
+        "age": 7,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat045",
+          "cat046",
+          "cat047"
+        ]
+      },
+      {
+        "id": "cat044",
+        "name": "CatName044",
+        "age": 13,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat046",
+          "cat047",
+          "cat048"
+        ]
+      },
+      {
+        "id": "cat045",
+        "name": "CatName045",
+        "age": 5,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat047",
+          "cat048",
+          "cat049"
+        ]
+      },
+      {
+        "id": "cat046",
+        "name": "CatName046",
+        "age": 3,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat048",
+          "cat049",
+          "cat050"
+        ]
+      },
+      {
+        "id": "cat047",
+        "name": "CatName047",
+        "age": 2,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat049",
+          "cat050",
+          "cat051"
+        ]
+      },
+      {
+        "id": "cat048",
+        "name": "CatName048",
+        "age": 4,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Laser Pointer",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat050",
+          "cat051",
+          "cat052"
+        ]
+      },
+      {
+        "id": "cat049",
+        "name": "CatName049",
+        "age": 10,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat051",
+          "cat052",
+          "cat053"
+        ]
+      },
+      {
+        "id": "cat050",
+        "name": "CatName050",
+        "age": 7,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 50",
+          "contact": {
+            "phone": "555-1050",
+            "email": "owner50@example.com"
+          },
+          "address": {
+            "street": "150 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat052",
+          "cat053",
+          "cat054"
+        ]
+      },
+      {
+        "id": "cat051",
+        "name": "CatName051",
+        "age": 9,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat053",
+          "cat054",
+          "cat055"
+        ]
+      },
+      {
+        "id": "cat052",
+        "name": "CatName052",
+        "age": 12,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat054",
+          "cat055",
+          "cat056"
+        ]
+      },
+      {
+        "id": "cat053",
+        "name": "CatName053",
+        "age": 8,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat055",
+          "cat056",
+          "cat057"
+        ]
+      },
+      {
+        "id": "cat054",
+        "name": "CatName054",
+        "age": 5,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat056",
+          "cat057",
+          "cat058"
+        ]
+      },
+      {
+        "id": "cat055",
+        "name": "CatName055",
+        "age": 15,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Cardboard Box",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat057",
+          "cat058",
+          "cat059"
+        ]
+      },
+      {
+        "id": "cat056",
+        "name": "CatName056",
+        "age": 10,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat058",
+          "cat059",
+          "cat060"
+        ]
+      },
+      {
+        "id": "cat057",
+        "name": "CatName057",
+        "age": 7,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat059",
+          "cat060",
+          "cat061"
+        ]
+      },
+      {
+        "id": "cat058",
+        "name": "CatName058",
+        "age": 15,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Cardboard Box",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat060",
+          "cat061",
+          "cat062"
+        ]
+      },
+      {
+        "id": "cat059",
+        "name": "CatName059",
+        "age": 11,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat061",
+          "cat062",
+          "cat063"
+        ]
+      },
+      {
+        "id": "cat060",
+        "name": "CatName060",
+        "age": 14,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 60",
+          "contact": {
+            "phone": "555-1060",
+            "email": "owner60@example.com"
+          },
+          "address": {
+            "street": "160 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat062",
+          "cat063",
+          "cat064"
+        ]
+      },
+      {
+        "id": "cat061",
+        "name": "CatName061",
+        "age": 3,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat063",
+          "cat064",
+          "cat065"
+        ]
+      },
+      {
+        "id": "cat062",
+        "name": "CatName062",
+        "age": 3,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat064",
+          "cat065",
+          "cat066"
+        ]
+      },
+      {
+        "id": "cat063",
+        "name": "CatName063",
+        "age": 14,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat065",
+          "cat066",
+          "cat067"
+        ]
+      },
+      {
+        "id": "cat064",
+        "name": "CatName064",
+        "age": 12,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Laser Pointer",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat066",
+          "cat067",
+          "cat068"
+        ]
+      },
+      {
+        "id": "cat065",
+        "name": "CatName065",
+        "age": 9,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Cardboard Box",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat067",
+          "cat068",
+          "cat069"
+        ]
+      },
+      {
+        "id": "cat066",
+        "name": "CatName066",
+        "age": 11,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat068",
+          "cat069",
+          "cat070"
+        ]
+      },
+      {
+        "id": "cat067",
+        "name": "CatName067",
+        "age": 9,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat069",
+          "cat070",
+          "cat071"
+        ]
+      },
+      {
+        "id": "cat068",
+        "name": "CatName068",
+        "age": 4,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat070",
+          "cat071",
+          "cat072"
+        ]
+      },
+      {
+        "id": "cat069",
+        "name": "CatName069",
+        "age": 3,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat071",
+          "cat072",
+          "cat073"
+        ]
+      },
+      {
+        "id": "cat070",
+        "name": "CatName070",
+        "age": 4,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 70",
+          "contact": {
+            "phone": "555-1070",
+            "email": "owner70@example.com"
+          },
+          "address": {
+            "street": "170 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat072",
+          "cat073",
+          "cat074"
+        ]
+      },
+      {
+        "id": "cat071",
+        "name": "CatName071",
+        "age": 2,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat073",
+          "cat074",
+          "cat075"
+        ]
+      },
+      {
+        "id": "cat072",
+        "name": "CatName072",
+        "age": 3,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat074",
+          "cat075",
+          "cat076"
+        ]
+      },
+      {
+        "id": "cat073",
+        "name": "CatName073",
+        "age": 7,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat075",
+          "cat076",
+          "cat077"
+        ]
+      },
+      {
+        "id": "cat074",
+        "name": "CatName074",
+        "age": 2,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat076",
+          "cat077",
+          "cat078"
+        ]
+      },
+      {
+        "id": "cat075",
+        "name": "CatName075",
+        "age": 1,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat077",
+          "cat078",
+          "cat079"
+        ]
+      },
+      {
+        "id": "cat076",
+        "name": "CatName076",
+        "age": 6,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat078",
+          "cat079",
+          "cat080"
+        ]
+      },
+      {
+        "id": "cat077",
+        "name": "CatName077",
+        "age": 11,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat079",
+          "cat080",
+          "cat081"
+        ]
+      },
+      {
+        "id": "cat078",
+        "name": "CatName078",
+        "age": 3,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat080",
+          "cat081",
+          "cat082"
+        ]
+      },
+      {
+        "id": "cat079",
+        "name": "CatName079",
+        "age": 1,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Cardboard Box",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat081",
+          "cat082",
+          "cat083"
+        ]
+      },
+      {
+        "id": "cat080",
+        "name": "CatName080",
+        "age": 2,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 80",
+          "contact": {
+            "phone": "555-1080",
+            "email": "owner80@example.com"
+          },
+          "address": {
+            "street": "180 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Jingle Ball",
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat082",
+          "cat083",
+          "cat084"
+        ]
+      },
+      {
+        "id": "cat081",
+        "name": "CatName081",
+        "age": 3,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat083",
+          "cat084",
+          "cat085"
+        ]
+      },
+      {
+        "id": "cat082",
+        "name": "CatName082",
+        "age": 2,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat084",
+          "cat085",
+          "cat086"
+        ]
+      },
+      {
+        "id": "cat083",
+        "name": "CatName083",
+        "age": 10,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat085",
+          "cat086",
+          "cat087"
+        ]
+      },
+      {
+        "id": "cat084",
+        "name": "CatName084",
+        "age": 15,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat086",
+          "cat087",
+          "cat088"
+        ]
+      },
+      {
+        "id": "cat085",
+        "name": "CatName085",
+        "age": 4,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat087",
+          "cat088",
+          "cat089"
+        ]
+      },
+      {
+        "id": "cat086",
+        "name": "CatName086",
+        "age": 8,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat088",
+          "cat089",
+          "cat090"
+        ]
+      },
+      {
+        "id": "cat087",
+        "name": "CatName087",
+        "age": 6,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat089",
+          "cat090",
+          "cat091"
+        ]
+      },
+      {
+        "id": "cat088",
+        "name": "CatName088",
+        "age": 14,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer"
+        ],
+        "friends": [
+          "cat090",
+          "cat091",
+          "cat092"
+        ]
+      },
+      {
+        "id": "cat089",
+        "name": "CatName089",
+        "age": 15,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand",
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat091",
+          "cat092",
+          "cat093"
+        ]
+      },
+      {
+        "id": "cat090",
+        "name": "CatName090",
+        "age": 11,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 90",
+          "contact": {
+            "phone": "555-1090",
+            "email": "owner90@example.com"
+          },
+          "address": {
+            "street": "190 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Laser Pointer",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat092",
+          "cat093",
+          "cat094"
+        ]
+      },
+      {
+        "id": "cat091",
+        "name": "CatName091",
+        "age": 7,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat093",
+          "cat094",
+          "cat095"
+        ]
+      },
+      {
+        "id": "cat092",
+        "name": "CatName092",
+        "age": 1,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat094",
+          "cat095",
+          "cat096"
+        ]
+      },
+      {
+        "id": "cat093",
+        "name": "CatName093",
+        "age": 1,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Feather Wand",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat095",
+          "cat096",
+          "cat097"
+        ]
+      },
+      {
+        "id": "cat094",
+        "name": "CatName094",
+        "age": 9,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat096",
+          "cat097",
+          "cat098"
+        ]
+      },
+      {
+        "id": "cat095",
+        "name": "CatName095",
+        "age": 4,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Cardboard Box",
+          "Laser Pointer",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat097",
+          "cat098",
+          "cat099"
+        ]
+      },
+      {
+        "id": "cat096",
+        "name": "CatName096",
+        "age": 15,
+        "breed": "Siamese",
+        "color": "Black",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          },
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Jingle Ball",
+          "Catnip Mouse",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat098",
+          "cat099",
+          "cat100"
+        ]
+      },
+      {
+        "id": "cat097",
+        "name": "CatName097",
+        "age": 6,
+        "breed": "Persian",
+        "color": "White",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Feather Wand",
+          "Cardboard Box"
+        ],
+        "friends": [
+          "cat099",
+          "cat100",
+          "cat001"
+        ]
+      },
+      {
+        "id": "cat098",
+        "name": "CatName098",
+        "age": 10,
+        "breed": "Bengal",
+        "color": "Gray",
+        "gender": "Male",
+        "adopted": true,
+        "medicalRecords": [],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand",
+          "Jingle Ball"
+        ],
+        "friends": [
+          "cat100",
+          "cat001",
+          "cat002"
+        ]
+      },
+      {
+        "id": "cat099",
+        "name": "CatName099",
+        "age": 14,
+        "breed": "Ragdoll",
+        "color": "Orange",
+        "gender": "Female",
+        "adopted": false,
+        "medicalRecords": [
+          {
+            "date": "2023-01-15",
+            "type": "Vaccination",
+            "details": "Rabies"
+          }
+        ],
+        "favoriteToys": [
+          "Catnip Mouse",
+          "Feather Wand"
+        ],
+        "friends": [
+          "cat001",
+          "cat002",
+          "cat003"
+        ]
+      },
+      {
+        "id": "cat100",
+        "name": "CatName100",
+        "age": 5,
+        "breed": "Sphynx",
+        "color": "Calico",
+        "gender": "Male",
+        "adopted": true,
+        "owner": {
+          "name": "Owner 100",
+          "contact": {
+            "phone": "555-1100",
+            "email": "owner100@example.com"
+          },
+          "address": {
+            "street": "200 Catnip Ave",
+            "city": "Meowtown",
+            "state": "CA"
+          }
+        },
+        "medicalRecords": [
+          {
+            "date": "2023-03-10",
+            "type": "Checkup",
+            "details": "Healthy"
+          }
+        ],
+        "favoriteToys": [
+          "Laser Pointer",
+          "Cardboard Box",
+          "Catnip Mouse"
+        ],
+        "friends": [
+          "cat002",
+          "cat003",
+          "cat004"
+        ]
+      }
+    ],
+    "staff": [
+      {
+        "id": "staff01",
+        "name": "Linda Meowers",
+        "role": "Manager"
+      },
+      {
+        "id": "staff02",
+        "name": "Tom Catson",
+        "role": "Veterinarian"
+      }
+    ],
+    "events": [
+      {
+        "name": "Adoption Day",
+        "date": "2024-07-15",
+        "description": "Find your purrfect companion!"
+      }
+    ]
+  }
+}
