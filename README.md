@@ -24,7 +24,7 @@ implementation("io.github.lexa-diky:json-query:<LATEST>")
 
 ### [Kotlin Notebook](./example/notebook.ipynb)
 
-### Real-World Examples
+### Querying Json data
 
 ```kotlin
 val json = Json.parseToJsonElement(File("dataset.json").readText())
@@ -70,8 +70,20 @@ println(json.query {
 })
 
 // Applying a query to each element in an array
-println(json.query { 
+println(json.query {
     path("shelter.cats.name")
-        .each { mapT<String, String> { it.uppercase() } } 
+        .each { mapT<String, String> { it.uppercase() } }
 })
 ```
+
+### Typed query results with `queryAs`
+
+You can use `queryAs` to directly convert the result of a query to a Kotlin type (e.g., List, Map, Int, String):
+
+```kotlin
+// Get a list of cat names as List<String>
+val names = json.queryAs<List<String>> { path("shelter.cats.name") }
+// Get a single age as Int
+val age = json.queryAs<Int> { path("shelter.cats.1.age") }
+```
+
