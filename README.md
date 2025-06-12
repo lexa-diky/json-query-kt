@@ -13,6 +13,7 @@ A lightweight Kotlin library for querying and transforming JSON data using a flu
 - 🔎 Select and filter JSON object properties
 - 📊 Aggregate data common functions
 - 🧩 Compose queries fluently
+- 📚 Naturally compatible with Kotlin Notebook
 
 ## Get Started 🚀
 
@@ -40,12 +41,30 @@ println(json.query("shelter.cats.0.name"))
 // Accessing all names in an array
 println(json.query { path("shelter.cats.name") })
 
+// Wildcard path
+println(json.query { path("shelter.*.name") })
+
 // Filtering array elements
 println(json.query { path("shelter.cats.name").filterT<String> { it.startsWith("M") } })
 
 // Slicing arrays
 println(json.query { path("shelter.cats")[0..1].path("name") })
+```
 
+### Typed query results with `queryAs`
+
+You can use `queryAs` to directly convert the result of a query to a Kotlin type (e.g., List, Map, Int, String):
+
+```kotlin
+// Get a list of cat names as List<String>
+val names = json.queryAs<List<String>> { path("shelter.cats.name") }
+// Get a single age as Int
+val age = json.queryAs<Int> { path("shelter.cats.1.age") }
+```
+
+### Modifying queried data
+
+```kotlin
 // Statistical operations
 println(json.query { path("shelter.cats.age").max() })
 println(json.query { path("shelter.cats.age").min() })
@@ -75,15 +94,3 @@ println(json.query {
         .each { mapT<String, String> { it.uppercase() } }
 })
 ```
-
-### Typed query results with `queryAs`
-
-You can use `queryAs` to directly convert the result of a query to a Kotlin type (e.g., List, Map, Int, String):
-
-```kotlin
-// Get a list of cat names as List<String>
-val names = json.queryAs<List<String>> { path("shelter.cats.name") }
-// Get a single age as Int
-val age = json.queryAs<Int> { path("shelter.cats.1.age") }
-```
-

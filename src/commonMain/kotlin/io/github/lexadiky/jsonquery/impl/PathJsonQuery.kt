@@ -17,7 +17,15 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
         for ((index, segment) in segments.withIndex()) {
             when (current) {
                 null -> return JsonNull
-                is JsonObject -> current = current.jsonObject[segment]
+                is JsonObject -> {
+                    if (segment == "*") {
+                        return ObjectSpreadJsonQuery(
+                            PathJsonQuery(segments.subList(index + 1, segments.size))
+                        ).select(current)
+                    } else {
+                        current = current.jsonObject[segment]
+                    }
+                }
                 is JsonArray -> {
                     val segmentAsInt = segment.toIntOrNull()
                     if (segmentAsInt != null) {

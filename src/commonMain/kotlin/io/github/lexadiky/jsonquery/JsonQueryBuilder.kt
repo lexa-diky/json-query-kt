@@ -124,8 +124,14 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
         MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform)
     }
 
-    fun identity(): JsonQueryBuilder = buildup {
-        IdentityJsonQuery()
+    fun identity(): JsonQueryBuilder {
+        if (parent is IdentityJsonQuery) {
+            return this
+        }
+
+        return buildup {
+            IdentityJsonQuery()
+        }
     }
 
     @PublishedApi
