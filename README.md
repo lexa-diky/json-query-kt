@@ -4,56 +4,56 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build](https://img.shields.io/github/actions/workflow/status/lexa-diky/json-query-kt/gradle.yml?branch=main)](https://github.com/lexa-diky/json-query-kt/actions)
 ![Maven Central Version](https://img.shields.io/maven-central/v/io.github.lexa-diky/json-query)
+
 A lightweight Kotlin library for querying and transforming JSON data using a fluent, composable API. ✨
 
 ## Features 🛠️
 
+- 🧭 Traverse nested paths, index and slice JSON arrays
 - 🔎 Select and filter JSON object properties
-- 🧭 Traverse nested paths
-- 🔢 Index and slice JSON arrays
-- 🪄 Flatten nested arrays
-- 🧪 Apply custom filters on JSON primitives
+- 📊 Aggregate data common functions
 - 🧩 Compose queries fluently
 
-## Usage 📦
-
-Add the dependency to your project (see [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) for setup).
-
-### Example 💡
+## Get Started 🚀
 
 ```kotlin
-import io.github.lexadiky.jsonquery.JsonQuery
-import kotlinx.serialization.json.Json
+implementation("io.github.lexa-diky:json-query:<LATEST>")
+```
 
-fun main() {
-    val element = Json.parseToJsonElement("""
-        {
-            "name": "John Doe",
-            "age": 30,
-            "isEmployed": true,
-            "skills": ["Kotlin", "Java", "Python"],
-            "projects": [
-                {"name": "Project A", "status": "completed", "year": 2021, "tags": ["backend", "api", "ui"]},
-                {"name": "Project B", "status": "in-progress", "year": 2022}
-            ],
-            "address": {
-                "street": "123 Main St",
-                "city": "Anytown",
-                "zipCode": "12345"
-            }
+## Quick Examples 🚦
+
+### Extract a field
+
+```kotlin
+val json = Json.parseToJsonElement("""{"name": "Alice", "age": 25, "address": {"city": "Wonderland"}}""")
+println(json.query { path("name") }) // JsonPrimitive("Alice")
+println(json.query { path("address.city") }) // JsonPrimitive("Wonderland")
+println(json.query { path("address", "city") }) // JsonPrimitive("Wonderland")
+```
+
+### Aggregate: min, max, average
+
+```kotlin
+val json = Json.parseToJsonElement("""[1, 2, 3, 4, 5]""")
+println(json.query { min() }) // JsonPrimitive(1)
+println(json.query { max() }) // JsonPrimitive(5)
+println(json.query { average() }) // JsonPrimitive(3)
+```
+
+### Filter, map, flatten
+
+```kotlin
+val json = Json.parseToJsonElement("""{"numbers": [1, 2, 3, 4, 5]}""")
+val evens =
+    println(
+        json.query {
+            path("numbers")
+                .filter { it.jsonPrimitive.int % 2 == 0 }
         }
-    """.trimIndent())
+    ) // JsonArray([2, 4])
 
-    val query = JsonQuery {
-        path("projects")
-            .select("name", "tags")
-            .path("tags")
-            .flatten()
-            .filter { it.content.contains("i") }
-    }
-
-    println(query.resolve(element))
-}
+val nested = Json.parseToJsonElement("""[[1,2],[3,4]]""")
+println(nested.query { flatten() }) // JsonArray([1,2,3,4])
 ```
 
 ## API Overview 📚
