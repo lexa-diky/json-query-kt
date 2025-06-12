@@ -29,7 +29,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
       - name: Test with Gradle
-        run: ./gradlew jvmJar jvmTest detektJvmMain apiCheck
+        run: ./gradlew jvmJar check
       - uses: actions/upload-artifact@v4
         name: Upload Junit Report
         if: ${{ !cancelled() }}

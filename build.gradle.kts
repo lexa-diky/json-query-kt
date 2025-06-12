@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "io.github.lexa-diky"
-version = "0.3.0"
+version = "0.4.0"
 
 kotlin {
     jvmToolchain(17)
@@ -97,4 +97,8 @@ benchmark {
     targets {
         register("jvmBenchmark")
     }
+}
+
+val check by tasks.getting {
+    dependsOn("jvmTest", "detektJvmMain", "apiCheck")
 }

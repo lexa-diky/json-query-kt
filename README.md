@@ -23,7 +23,7 @@ implementation("io.github.lexa-diky:json-query:<LATEST>")
 
 ## Quick Examples 🚦
 
-### [Kotlin Notebook](./example/notebook.ipynb)
+### [Kotlin Notebook](doc/example/notebook.ipynb)
 
 ### Querying Json data
 
@@ -72,6 +72,7 @@ println(json.query { path("shelter.cats.age").average() })
 println(json.query { path("shelter.cats.age").sum() })
 println(json.query { path("shelter.cats.age").first() })
 println(json.query { path("shelter.cats.age").last() })
+println(json.query { path("shelter.cats.age").distinct() })
 println(json.query { path("shelter.cats.age").filterT<Int> { it >= 2 }.size() })
 
 // Selecting specific fields

@@ -35,12 +35,16 @@ public final class io/github/lexadiky/jsonquery/JsonQueryBuilder {
 
 public final class io/github/lexadiky/jsonquery/JsonQueryBuilderAggregateKt {
 	public static final fun average-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
-	public static final fun first-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
-	public static final fun last-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun max-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun min-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
-	public static final fun size-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun sum-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
+}
+
+public final class io/github/lexadiky/jsonquery/JsonQueryBuilderArrayKt {
+	public static final fun distinct-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
+	public static final fun first-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
+	public static final fun last-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
+	public static final fun size-9WcQtdM (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 }
 
 public final class io/github/lexadiky/jsonquery/JsonQueryBuilderMappingKt {

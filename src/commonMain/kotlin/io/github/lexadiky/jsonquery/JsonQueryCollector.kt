@@ -15,6 +15,12 @@ import kotlin.reflect.typeOf
  */
 interface JsonQueryCollector<T> {
 
+    /**
+     * Collects the result from the provided [JsonElement] based on the query.
+     *
+     * @param element The [JsonElement] to collect from.
+     * @return The collected result of type [T].
+     */
     fun collect(element: JsonElement): T
 }
 

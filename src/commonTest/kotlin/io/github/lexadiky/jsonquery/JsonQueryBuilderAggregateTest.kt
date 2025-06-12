@@ -68,6 +68,14 @@ class JsonQueryBuilderAggregateTest {
     }
 
     @Test
+    fun distinct() {
+        assertEquals(
+            array("1.0", "2.0", "3.0"),
+            array("1.0", "2.0", "3.0", "3.0").query { distinct() }
+        )
+    }
+
+    @Test
     fun emptyArray() {
         val empty = array()
         assertEquals(JsonNull, empty.query { min() })
