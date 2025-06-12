@@ -5,6 +5,7 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlin.jvm.JvmInline
 
@@ -17,9 +18,16 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
             when (current) {
                 null -> return JsonNull
                 is JsonObject -> current = current.jsonObject[segment]
-                is JsonArray -> return ArraySpreadJsonQuery(
-                    PathJsonQuery(segments.subList(index, segments.size))
-                ).select(current)
+                is JsonArray -> {
+                    val segmentAsInt = segment.toIntOrNull()
+                    if (segmentAsInt != null) {
+                        current = current.jsonArray[segmentAsInt]
+                    } else {
+                        return ArraySpreadJsonQuery(
+                            PathJsonQuery(segments.subList(index, segments.size))
+                        ).select(current)
+                    }
+                }
 
                 else -> return JsonNull
             }

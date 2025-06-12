@@ -5,6 +5,7 @@ import io.github.lexadiky.jsonquery.query
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.putJsonArray
 import kotlinx.serialization.json.putJsonObject
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -120,5 +121,23 @@ class PathJsonQueryTest {
 
         assertIs<FinalizedJsonQuery>(query)
         assertIs<PathJsonQuery>(query.query)
+    }
+
+    @Test
+    fun `index access`() {
+        val element = buildJsonObject {
+            putJsonObject("a") {
+                putJsonArray("b") {
+                    add(JsonPrimitive("0"))
+                    add(JsonPrimitive("1"))
+                    add(JsonPrimitive("2"))
+                }
+            }
+        }
+
+
+        val resolved = element.query { path("a.b.0") }
+
+        assertEquals(JsonPrimitive("0"), resolved)
     }
 }
