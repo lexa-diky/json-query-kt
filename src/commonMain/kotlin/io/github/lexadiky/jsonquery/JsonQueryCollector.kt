@@ -40,6 +40,7 @@ internal class AutoJsonQueryCollector<T>(
  * }
  * ```
  */
+@Suppress("FunctionNaming")
 inline fun <reified T> JsonQueryAs(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryCollector<T> {
     val builder = JsonQueryBuilder().fn()
     return AutoJsonQueryCollector(
