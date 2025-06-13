@@ -20,6 +20,5 @@ import kotlinx.serialization.json.JsonElement
  * }
  * ```
  */
-fun JsonQueryBuilder.qmap(transform: JsonElement.() -> JsonElement): JsonQueryBuilder = buildup {
-    MapJsonQuery { element -> element.transform() }
-}
+fun JsonQueryBuilder.qmap(transform: JsonElement.() -> JsonElement): JsonQueryBuilder =
+    join(MapJsonQuery { element -> element.transform() })

@@ -4,11 +4,13 @@ import io.gitlab.arturbosch.detekt.Detekt
 plugins {
     kotlin("multiplatform") version "2.1.20"
     kotlin("plugin.serialization") version "2.1.20"
+    kotlin("plugin.allopen") version "2.0.20"
+
     id("com.vanniktech.maven.publish") version "0.29.0"
     id("io.gitlab.arturbosch.detekt") version ("1.23.8")
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.17.0"
     id("org.jetbrains.kotlinx.benchmark") version "0.4.14"
-    kotlin("plugin.allopen") version "2.0.20"
+    id("com.star-zero.gradle.githook")version "1.2.1"
 }
 
 group = "io.github.lexa-diky"
@@ -101,4 +103,14 @@ benchmark {
 
 val check by tasks.getting {
     dependsOn("jvmTest", "detektJvmMain", "apiCheck")
+}
+
+githook {
+    failOnMissingHooksDir = true
+    createHooksDirIfNotExist = true
+    hooks {
+        create("pre-commit") {
+            task = "check"
+        }
+    }
 }

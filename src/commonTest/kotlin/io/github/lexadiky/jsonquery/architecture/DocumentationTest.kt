@@ -29,6 +29,6 @@ class DocumentationTest {
             .withoutPrivateModifier()
             .withoutInternalModifier()
             .withoutOverrideModifier()
-            .assertTrue { it.hasKDoc }
+            .assertTrue { it.hasKDoc && it.kDoc?.text!!.length > 10 }
     }
 }

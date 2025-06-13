@@ -7,7 +7,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlin.collections.first
 import kotlin.collections.last
 
-private fun JsonQueryBuilder.modify(onEmpty: JsonElement, fn: (List<JsonElement>) -> JsonElement) =
+private fun JsonQueryBuilder.mapArray(onEmpty: JsonElement, fn: (List<JsonElement>) -> JsonElement) =
     map { element ->
         if (element is JsonArray) {
             if (element.isEmpty()) return@map onEmpty
@@ -21,23 +21,27 @@ private fun JsonQueryBuilder.modify(onEmpty: JsonElement, fn: (List<JsonElement>
  * Returns the first element of a JSON array.
  * Returns [JsonNull] if the input is not a JSON array or is empty.
  */
-fun JsonQueryBuilder.first() = modify(JsonNull, List<JsonElement>::first)
+fun JsonQueryBuilder.first() =
+    mapArray(JsonNull, List<JsonElement>::first)
 
 /**
  * Returns the last element of a JSON array.
  * Returns [JsonNull] if the input is not a JSON array or is empty.
  */
-fun JsonQueryBuilder.last() = modify(JsonNull, List<JsonElement>::last)
+fun JsonQueryBuilder.last() =
+    mapArray(JsonNull, List<JsonElement>::last)
 
 /**
  * Returns the size of a JSON array as a [JsonPrimitive].
  * Returns [JsonNull] if the input is not a JSON array.
  */
-fun JsonQueryBuilder.size() = modify(JsonPrimitive(0)) { elements -> JsonPrimitive(elements.size) }
+fun JsonQueryBuilder.size() =
+    mapArray(JsonPrimitive(0)) { elements -> JsonPrimitive(elements.size) }
 
 /**
  * Returns the deduplicated elements of a JSON array.
  */
-fun JsonQueryBuilder.distinct() = modify(JsonArray(emptyList())) {
-    JsonArray(it.distinct())
-}
+fun JsonQueryBuilder.distinct() =
+    mapArray(JsonArray(emptyList())) {
+        JsonArray(it.distinct())
+    }

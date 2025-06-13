@@ -36,6 +36,7 @@ import kotlin.reflect.typeOf
 @JvmInline
 @Suppress("TooManyFunctions")
 value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = null) {
+
     /**
      * Traverse into the given object [segments] (dot notation supported).
      * If chained, appends to the current path.
@@ -49,80 +50,70 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
             )
         }
 
-        return buildup {
-            val objPath = segments.flatMap { segment -> segment.split(".") }
-            PathJsonQuery(objPath)
-        }
+        val objPath = segments.flatMap { segment -> segment.split(".") }
+        return join(PathJsonQuery(objPath))
     }
 
     /**
      * Selects the element at the given array [index].
      */
-    operator fun get(index: Int): JsonQueryBuilder = buildup {
-        IndexJsonQuery(index)
-    }
+    operator fun get(index: Int): JsonQueryBuilder =
+        join(IndexJsonQuery(index))
 
     /**
      * Traverse into the given object [segments] (dot notation supported).
      */
-    operator fun get(vararg segments: String): JsonQueryBuilder = path(segments = segments)
+    operator fun get(vararg segments: String): JsonQueryBuilder =
+        path(segments = segments)
 
     /**
      * Selects a slice of the array using the given [range].
      */
-    operator fun get(range: IntRange): JsonQueryBuilder = buildup {
-        SliceJsonQuery(range)
-    }
+    operator fun get(range: IntRange): JsonQueryBuilder =
+        join(SliceJsonQuery(range))
 
     /**
      * Filters array elements using the given [condition].
      */
-    fun filter(condition: (JsonElement) -> Boolean): JsonQueryBuilder = buildup {
-        ConditionalFilterJsonQuery(condition)
-    }
+    fun filter(condition: (JsonElement) -> Boolean): JsonQueryBuilder =
+        join(ConditionalFilterJsonQuery(condition))
 
     /**
      * Filters array elements by type [T] and [condition].
      */
-    inline fun <reified T> filterT(noinline condition: (T) -> Boolean): JsonQueryBuilder = buildup {
-        ConditionalTypedFilterJsonQuery(typeOf<T>(), condition)
-    }
+    inline fun <reified T> filterT(noinline condition: (T) -> Boolean): JsonQueryBuilder =
+        join(ConditionalTypedFilterJsonQuery(typeOf<T>(), condition))
 
     /**
      * Selects the given [properties] from an object.
      */
-    fun select(vararg properties: String): JsonQueryBuilder = buildup {
-        SelectJsonQuery(properties.toList())
-    }
+    fun select(vararg properties: String): JsonQueryBuilder =
+        join(SelectJsonQuery(properties.toList()))
 
     /**
      * Flattens nested arrays. If [recursive] is true, flattens all levels.
      */
-    fun flatten(recursive: Boolean = false): JsonQueryBuilder = buildup {
-        FlattenJsonQuery(recursive)
-    }
+    fun flatten(recursive: Boolean = false): JsonQueryBuilder =
+        join(FlattenJsonQuery(recursive))
 
     /**
      * Maps each element using the given [transform] function.
      */
-    fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder = buildup {
-        MapJsonQuery(transform)
-    }
+    fun map(transform: (JsonElement) -> JsonElement): JsonQueryBuilder =
+        join(MapJsonQuery(transform))
 
     /**
      * Runs query on each element and maps the result using the given [transform] function.
      * If applied to non array elements, it will run on single element
      */
-    fun each(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryBuilder = buildup {
-        EachJsonQuery(JsonQuery(fn))
-    }
+    fun each(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryBuilder =
+        join(EachJsonQuery(JsonQuery(fn)))
 
     /**
      * Maps each element using the given [transform] function and types [F], [T].
      */
-    inline fun <reified F, reified T> mapT(noinline transform: (F) -> T): JsonQueryBuilder = buildup {
-        MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform)
-    }
+    inline fun <reified F, reified T> mapT(noinline transform: (F) -> T): JsonQueryBuilder =
+        join(MapTypedJsonQuery(typeOf<F>(), typeOf<T>(), transform))
 
     /**
      * Creates an identity query that returns the input JSON element unchanged.
@@ -133,17 +124,17 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
             return this
         }
 
-        return buildup {
-            IdentityJsonQuery()
-        }
+        return join(IdentityJsonQuery())
     }
 
-    @PublishedApi
-    internal inline fun buildup(fn: () -> JsonQuery): JsonQueryBuilder {
+    /**
+     * Adds sub [JsonQuery] to this builder. Useful for creating custom query functions
+     */
+    fun join(query: JsonQuery): JsonQueryBuilder {
         return if (parent != null) {
-            JsonQueryBuilder(JoinJsonQuery(parent, fn()))
+            JsonQueryBuilder(JoinJsonQuery(parent, query))
         } else {
-            JsonQueryBuilder(fn())
+            JsonQueryBuilder(query)
         }
     }
 }

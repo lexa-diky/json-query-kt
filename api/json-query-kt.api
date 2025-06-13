@@ -9,7 +9,6 @@ public abstract interface class io/github/lexadiky/jsonquery/JsonQuery {
 
 public final class io/github/lexadiky/jsonquery/JsonQueryBuilder {
 	public static final synthetic fun box-impl (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQueryBuilder;
-	public static final fun buildup-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;Lkotlin/jvm/functions/Function0;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static fun constructor-impl (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static synthetic fun constructor-impl$default (Lio/github/lexadiky/jsonquery/JsonQuery;ILkotlin/jvm/internal/DefaultConstructorMarker;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun each-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;Lkotlin/jvm/functions/Function1;)Lio/github/lexadiky/jsonquery/JsonQuery;
@@ -25,6 +24,7 @@ public final class io/github/lexadiky/jsonquery/JsonQueryBuilder {
 	public fun hashCode ()I
 	public static fun hashCode-impl (Lio/github/lexadiky/jsonquery/JsonQuery;)I
 	public static final fun identity-l2E1Fg0 (Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
+	public static final fun join-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;Lio/github/lexadiky/jsonquery/JsonQuery;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun map-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;Lkotlin/jvm/functions/Function1;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun path-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;[Ljava/lang/String;)Lio/github/lexadiky/jsonquery/JsonQuery;
 	public static final fun select-gshtLOw (Lio/github/lexadiky/jsonquery/JsonQuery;[Ljava/lang/String;)Lio/github/lexadiky/jsonquery/JsonQuery;
