@@ -1,11 +1,15 @@
 name: publish
 on:
   release:
-    types: [released, prereleased]
+    types: [ released, prereleased ]
+
+permissions:
+  contents: read
+
 jobs:
   publish:
-    name: Release build and publish
     runs-on: macos-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4

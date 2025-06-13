@@ -4,13 +4,16 @@ on:
     workflows: [ 'gradle' ]
     types:
       - completed
+
 permissions:
   contents: read
   actions: read
   checks: write
+
 jobs:
   report:
     runs-on: macos-latest
+
     steps:
       - uses: dorny/test-reporter@v2
         with:
