@@ -33,6 +33,13 @@ kotlin {
         nodejs()
     }
     wasmJs()
+    wasmWasi()
+    if (System.getenv("GITHUB_ACTIONS") != null) {
+        linuxArm64()
+        iosX64()
+        iosArm64()
+        iosSimulatorArm64()
+    }
 
     sourceSets {
         named("commonMain") {
