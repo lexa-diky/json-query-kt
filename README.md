@@ -53,7 +53,7 @@ println(json.query { path("shelter.cats")[0..1].path("name") })
 
 ### Typed query results with `queryAs`
 
-You can use `queryAs` to directly convert the result of a query to a Kotlin type (e.g., List, Map, Int, String):
+You can use `queryAs` to directly convert the result of a query to a Kotlin type using `kotlinx.serialization`:
 
 ```kotlin
 // Get a list of cat names as List<String>

@@ -2,17 +2,20 @@
 
 package io.github.lexadiky.jsonquery.util
 
+import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.floatOrNull
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.longOrNull
+import kotlinx.serialization.serializer
 import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
@@ -43,7 +46,12 @@ private val TC_JSON_TYPES_SET = setOf(
 private val TC_LIST = typeOf<List<*>>().classifier
 private val TC_MAP = typeOf<Map<*, *>>().classifier
 
-@Suppress("UNCHECKED_CAST", "ReturnCount", "CyclomaticComplexMethod")
+private val DEFAULT_JSON = Json {
+    ignoreUnknownKeys = true
+    coerceInputValues = true
+}
+
+@Suppress("UNCHECKED_CAST", "ReturnCount", "CyclomaticComplexMethod", "TooGenericExceptionCaught", "SwallowedException")
 internal fun <T> JsonElement.asTyped(type: KType): T? {
     if (this is JsonArray && type.classifier == TC_LIST) {
         val typeArgument = type.arguments.first().type ?: error("Cannot convert $this to type $type")
@@ -63,8 +71,16 @@ internal fun <T> JsonElement.asTyped(type: KType): T? {
         return this as T
     }
 
-    if (this !is JsonPrimitive) return null
-
+    if (this !is JsonPrimitive) {
+        try {
+            return DEFAULT_JSON.decodeFromJsonElement(
+                serializer(type),
+                this
+            ) as T
+        } catch (e: Throwable) {
+            return null
+        }
+    }
 
     return when (type.classifier) {
         TC_BYTE -> this.intOrNull?.toByte()

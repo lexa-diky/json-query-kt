@@ -1,5 +1,6 @@
 package io.github.lexadiky.jsonquery
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.assertThrows
 import java.lang.Exception
@@ -82,5 +83,14 @@ class JsonQueryCollectorTest {
         }
         assertEquals(listOf(3, 4, 2), result)
     }
+
+    @Test
+    fun `queryAs with complex types`() {
+        val shelter = json.queryAs<Shelter> { path("shelter") }
+        assertEquals("Happy Shelter", shelter.name)
+    }
+
+    @Serializable
+    data class Shelter(val name: String)
 }
 
