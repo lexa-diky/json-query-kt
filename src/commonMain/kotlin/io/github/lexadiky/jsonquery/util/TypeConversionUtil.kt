@@ -9,7 +9,6 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.contentOrNull
-import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.floatOrNull
 import kotlinx.serialization.json.intOrNull
 import kotlinx.serialization.json.jsonArray
@@ -72,13 +71,13 @@ internal fun <T> JsonElement.asTyped(type: KType): T? {
     }
 
     if (this !is JsonPrimitive) {
-        try {
-            return DEFAULT_JSON.decodeFromJsonElement(
+        return try {
+            DEFAULT_JSON.decodeFromJsonElement(
                 serializer(type),
                 this
             ) as T
         } catch (e: Throwable) {
-            return null
+            null
         }
     }
 

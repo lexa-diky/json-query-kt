@@ -103,7 +103,7 @@ value class JsonQueryBuilder(@PublishedApi internal val parent: JsonQuery? = nul
         join(MapJsonQuery(transform))
 
     /**
-     * Runs query on each element and maps the result using the given [transform] function.
+     * Runs query on each element and maps the result using the given [fn] function.
      * If applied to non array elements, it will run on single element
      */
     fun each(fn: JsonQueryBuilder.() -> JsonQueryBuilder): JsonQueryBuilder =

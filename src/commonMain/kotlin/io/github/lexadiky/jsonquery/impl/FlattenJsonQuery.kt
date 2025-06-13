@@ -56,12 +56,18 @@ internal value class FlattenJsonQuery(private val recursive: Boolean) : JsonQuer
         }
 
         return json.flatMap { child ->
-            if (child is JsonArray) {
-                flattenRecursive(child)
-            } else if (child is JsonObject) {
-                flattenObject(child)
-            } else {
-                listOf(child)
+            when (child) {
+                is JsonArray -> {
+                    flattenRecursive(child)
+                }
+
+                is JsonObject -> {
+                    flattenObject(child)
+                }
+
+                else -> {
+                    listOf(child)
+                }
             }
         }
     }

@@ -29,12 +29,12 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting {
+        named("commonMain") {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
             }
         }
-        val commonTest by getting {
+        named("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
                 implementation("com.lemonappdev:konsist:0.17.3")
@@ -101,7 +101,7 @@ benchmark {
     }
 }
 
-val check by tasks.getting {
+tasks.named("check") {
     dependsOn("jvmTest", "detektJvmMain", "apiCheck")
 }
 

@@ -10,10 +10,10 @@ internal value class EachJsonQuery(
 ) : JsonQuery {
 
     override fun select(json: JsonElement): JsonElement {
-        if (json is JsonArray) {
-            return JsonArray(json.map { element -> query.select(element) })
+        return if (json is JsonArray) {
+            JsonArray(json.map { element -> query.select(element) })
         } else {
-            return query.select(json)
+            query.select(json)
         }
     }
 }

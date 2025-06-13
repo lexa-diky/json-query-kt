@@ -14,19 +14,19 @@ internal value class SelectJsonQuery(
 
     @Suppress("ReturnCount")
     override fun select(json: JsonElement): JsonElement {
-        when (json) {
+        return when (json) {
             is JsonObject -> {
-                return JsonObject(
+                JsonObject(
                     json.filterKeys { it in properties }
                 )
             }
 
             is JsonArray -> {
-                return JsonArray(json.mapJsonNotNull { select(it) })
+                JsonArray(json.mapJsonNotNull { select(it) })
             }
 
             else -> {
-                return JsonNull
+                JsonNull
             }
         }
     }

@@ -12,10 +12,10 @@ internal value class IndexJsonQuery(
 ) : JsonQuery {
 
     override fun select(json: JsonElement): JsonElement {
-        if (json is JsonArray) {
-            return json.getOrNull(index) ?: JsonNull
+        return if (json is JsonArray) {
+            json.getOrNull(index) ?: JsonNull
         } else {
-            return JsonNull
+            JsonNull
         }
     }
 
