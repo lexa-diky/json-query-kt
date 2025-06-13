@@ -14,7 +14,9 @@ plugins {
 }
 
 group = "io.github.lexa-diky"
-version = "0.5.0"
+version = "0.6.0"
+
+val isCiBuild = System.getenv("GITHUB_ACTIONS") != null
 
 kotlin {
     jvmToolchain(17)
@@ -27,14 +29,19 @@ kotlin {
             }
         }
     }
-
-    js {
-        browser()
-        nodejs()
-    }
-    wasmJs()
-    wasmWasi()
-    if (System.getenv("GITHUB_ACTIONS") != null) {
+    if (isCiBuild) {
+        js {
+            browser()
+            nodejs()
+        }
+        wasmJs {
+            browser()
+            nodejs()
+            d8()
+        }
+        wasmWasi {
+            nodejs()
+        }
         linuxArm64()
         iosX64()
         iosArm64()
@@ -103,7 +110,9 @@ mavenPublishing {
 }
 
 tasks.withType<Detekt> {
-    dependsOn(tasks.named("kotlinStoreYarnLock"))
+    if (isCiBuild) {
+        dependsOn(tasks.named("kotlinStoreYarnLock"))
+    }
     setSource(files(project.projectDir))
     buildUponDefaultConfig = true
     exclude("**/*.kts")
