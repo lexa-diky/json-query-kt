@@ -94,7 +94,7 @@ internal fun <T> JsonElement.asTyped(type: KType): T? {
     } as T?
 }
 
-@Suppress("CyclomaticComplexMethod", "UNCHECKED_CAST", "ReturnCount")
+@Suppress("CyclomaticComplexMethod", "UNCHECKED_CAST", "ReturnCount", "SwallowedException", "TooGenericExceptionCaught")
 internal fun <T> T.asTypedBack(type: KType): JsonElement? {
     if (this is List<*> && type.classifier == TC_LIST) {
         val typeArgument = type.arguments.first().type ?: error("Cannot convert $this to type $type")
@@ -113,6 +113,17 @@ internal fun <T> T.asTypedBack(type: KType): JsonElement? {
                 typed ?: return null
             }
         )
+    }
+
+    if (this !is JsonPrimitive) {
+        return try {
+            DEFAULT_JSON.encodeToJsonElement(
+                serializer(type),
+                this
+            )
+        } catch (e: Throwable) {
+            null
+        }
     }
 
     return when (type.classifier) {

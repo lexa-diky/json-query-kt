@@ -87,6 +87,7 @@ mavenPublishing {
 
 tasks.withType<Detekt>{
     setSource(files(project.projectDir))
+    buildUponDefaultConfig = true
     exclude("**/*.kts")
     exclude("**/build/**")
 }
