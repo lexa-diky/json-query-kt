@@ -15,7 +15,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Publish to MavenCentral
-        run: ./gradlew jvmTest detektJvmMain publishToMavenCentral --no-configuration-cache --no-daemon
+        run: ./gradlew check publishToMavenCentral --no-configuration-cache --no-daemon
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
