@@ -28,6 +28,12 @@ kotlin {
         }
     }
 
+    js {
+        browser()
+        nodejs()
+    }
+    wasmJs()
+
     sourceSets {
         named("commonMain") {
             dependencies {
@@ -37,6 +43,10 @@ kotlin {
         named("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
+            }
+        }
+        named("jvmTest") {
+            dependencies {
                 implementation("com.lemonappdev:konsist:0.17.3")
             }
         }
@@ -86,6 +96,7 @@ mavenPublishing {
 }
 
 tasks.withType<Detekt> {
+    dependsOn(tasks.named("kotlinStoreYarnLock"))
     setSource(files(project.projectDir))
     buildUponDefaultConfig = true
     exclude("**/*.kts")

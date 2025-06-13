@@ -3,7 +3,7 @@ package io.github.lexadiky.jsonquery.architecture
 import com.lemonappdev.konsist.api.Konsist
 import com.lemonappdev.konsist.api.ext.list.withParentInterfaceNamed
 import com.lemonappdev.konsist.api.verify.assertTrue
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 
 class JsonQueryImplementerTest {
 

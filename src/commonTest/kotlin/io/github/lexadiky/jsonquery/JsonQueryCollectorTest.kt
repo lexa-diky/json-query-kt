@@ -2,10 +2,9 @@ package io.github.lexadiky.jsonquery
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import org.junit.jupiter.api.assertThrows
-import java.lang.Exception
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFails
 import kotlin.test.assertNull
 
 class JsonQueryCollectorTest {
@@ -47,14 +46,14 @@ class JsonQueryCollectorTest {
 
     @Test
     fun `queryAs throws for missing path for non nullable types`() {
-        assertThrows<Exception> {
+        assertFails {
             json.queryAs<String> { path("shelter.dogs.0.name") }
         }
     }
 
     @Test
     fun `queryAs throws for type mismatch for non nullable types`() {
-        assertThrows<Exception> {
+        assertFails {
             json.queryAs<Int> { path("shelter.cats.0.name") }
         }
     }

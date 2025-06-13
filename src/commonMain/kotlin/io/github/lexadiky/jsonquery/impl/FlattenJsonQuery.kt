@@ -7,6 +7,7 @@ import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonArray
+import kotlin.jvm.JvmInline
 
 @JvmInline
 internal value class FlattenJsonQuery(private val recursive: Boolean) : JsonQuery {
