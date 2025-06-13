@@ -18,7 +18,7 @@ A lightweight Kotlin library for querying and transforming JSON data using a flu
 ## Get Started 🚀
 
 ```kotlin
-implementation("io.github.lexa-diky:json-query:<LATEST>")
+implementation("io.github.lexa-diky:json-query:0.5.0")
 ```
 
 ## Quick Examples 🚦

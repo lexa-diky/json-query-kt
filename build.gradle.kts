@@ -10,11 +10,11 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version ("1.23.8")
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.17.0"
     id("org.jetbrains.kotlinx.benchmark") version "0.4.14"
-    id("com.star-zero.gradle.githook")version "1.2.1"
+    id("com.star-zero.gradle.githook") version "1.2.1"
 }
 
 group = "io.github.lexa-diky"
-version = "0.4.0"
+version = "0.5.0"
 
 kotlin {
     jvmToolchain(17)
@@ -85,7 +85,7 @@ mavenPublishing {
     }
 }
 
-tasks.withType<Detekt>{
+tasks.withType<Detekt> {
     setSource(files(project.projectDir))
     buildUponDefaultConfig = true
     exclude("**/*.kts")
@@ -102,10 +102,6 @@ benchmark {
     }
 }
 
-tasks.named("check") {
-    dependsOn("jvmTest", "detektJvmMain", "apiCheck")
-}
-
 githook {
     failOnMissingHooksDir = true
     createHooksDirIfNotExist = true
@@ -114,4 +110,45 @@ githook {
             task = "check"
         }
     }
+}
+
+tasks.named("check") {
+    dependsOn("jvmTest", "detektJvmMain", "apiCheck")
+}
+
+tasks.register("versionBump") {
+    doLast {
+        bumpVersionInBuildFile()
+        bumpVersionInReadme()
+    }
+}
+
+fun bumpVersionInBuildFile() {
+    val file = File("build.gradle.kts")
+    val updatedLines = file.readLines().map { line ->
+        val regex = Regex("""version\s*=\s*"(\d+)\.(\d+)\.(\d+)"""")
+        val match = regex.find(line)
+        if (match != null) {
+            val (major, minor, patch) = match.destructured
+            val newVersion = "${major}.${minor.toInt() + 1}.$patch"
+            line.replace(regex, """version = "$newVersion"""")
+        } else {
+            line
+        }
+    }
+    file.writeText(updatedLines.joinToString("\n"))
+}
+
+fun bumpVersionInReadme() {
+    val file = File("README.md")
+    val regex = Regex("""(:\d+)\.(\d+)\.(\d+)""")
+
+    val updatedLines = file.readLines().map { line ->
+        regex.replace(line) { match ->
+            val (major, minor, patch) = match.groupValues.drop(1)
+            ":${major.drop(1)}.${minor.toInt() + 1}.$patch"
+        }
+    }
+
+    file.writeText(updatedLines.joinToString("\n"))
 }
