@@ -2,7 +2,7 @@ import com.vanniktech.maven.publish.SonatypeHost
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    kotlin("multiplatform") version "2.1.21"
+    kotlin("multiplatform") version "2.2.10"
     kotlin("plugin.serialization") version "2.1.21"
     kotlin("plugin.allopen") version "2.0.21"
 
