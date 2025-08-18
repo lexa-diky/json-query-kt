@@ -4,7 +4,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 plugins {
     kotlin("multiplatform") version "2.1.21"
     kotlin("plugin.serialization") version "2.1.21"
-    kotlin("plugin.allopen") version "2.0.21"
+    kotlin("plugin.allopen") version "2.2.10"
 
     id("com.vanniktech.maven.publish") version "0.32.0"
     id("io.gitlab.arturbosch.detekt") version ("1.23.8")
