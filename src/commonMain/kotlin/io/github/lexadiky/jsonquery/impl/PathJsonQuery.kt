@@ -12,6 +12,8 @@ import kotlin.jvm.JvmInline
 @JvmInline
 @Suppress("ReturnCount")
 internal value class PathJsonQuery(internal val segments: List<String>) : JsonQuery {
+
+    @Suppress("NestedBlockDepth")
     override fun select(json: JsonElement): JsonElement {
         var current: JsonElement? = json
         for ((index, segment) in segments.withIndex()) {
@@ -25,6 +27,16 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
                     } else if (segment.contains("|")) {
                         // Support OR between keys within a single path segment: e.g., "a|b"
                         current = ShortOrJsonQuery(segment.split("|")).select(current)
+                    } else if (segment.contains("&")) {
+                        // Support AND between keys within a single path segment: e.g., "a&b"
+                        val keys = segment.split("&")
+                        val subset = AndJsonQuery(keys).select(current)
+                        if (index == segments.lastIndex) {
+                            return subset
+                        }
+                        return ObjectSpreadJsonQuery(
+                            PathJsonQuery(segments.subList(index + 1, segments.size))
+                        ).select(subset)
                     } else {
                         current = current.jsonObject[segment]
                     }
