@@ -22,6 +22,9 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
                         return ObjectSpreadJsonQuery(
                             PathJsonQuery(segments.subList(index + 1, segments.size))
                         ).select(current)
+                    } else if (segment.contains("|")) {
+                        // Support OR between keys within a single path segment: e.g., "a|b"
+                        current = ShortOrJsonQuery(segment.split("|")).select(current)
                     } else {
                         current = current.jsonObject[segment]
                     }
