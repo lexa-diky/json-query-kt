@@ -1,14 +1,13 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    kotlin("multiplatform") version "2.1.21"
-    kotlin("plugin.serialization") version "2.1.21"
-    kotlin("plugin.allopen") version "2.0.21"
+    kotlin("multiplatform") version "2.2.20"
+    kotlin("plugin.serialization") version "2.2.20"
+    kotlin("plugin.allopen") version "2.2.20"
 
-    id("com.vanniktech.maven.publish") version "0.32.0"
+    id("com.vanniktech.maven.publish") version "0.34.0"
     id("io.gitlab.arturbosch.detekt") version ("1.23.8")
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.17.0"
+    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.18.1"
     id("org.jetbrains.kotlinx.benchmark") version "0.4.14"
     id("com.star-zero.gradle.githook") version "1.2.1"
 }
@@ -75,7 +74,7 @@ tasks.withType<Test>().configureEach {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    publishToMavenCentral(automaticRelease = true)
     signAllPublications()
     coordinates(
         groupId = group.toString(),
