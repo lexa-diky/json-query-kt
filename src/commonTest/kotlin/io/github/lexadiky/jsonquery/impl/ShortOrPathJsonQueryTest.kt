@@ -28,6 +28,21 @@ class ShortOrPathJsonQueryTest {
     }
 
     @Test
+    fun `or with and precedence selects and-group when first missing`() {
+        val element = buildJsonObject {
+            put("b", JsonPrimitive("second"))
+            put("c", JsonPrimitive("third"))
+        }
+
+        val result = element.query { path("a|b&c") }
+        val expected = buildJsonObject {
+            put("b", JsonPrimitive("second"))
+            put("c", JsonPrimitive("third"))
+        }
+        assertEquals(expected, result)
+    }
+
+    @Test
     fun `or at root picks second when first missing`() {
         val element = buildJsonObject {
             put("b", JsonPrimitive("second"))

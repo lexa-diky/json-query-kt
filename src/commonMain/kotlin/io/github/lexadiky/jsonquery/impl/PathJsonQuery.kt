@@ -13,7 +13,7 @@ import kotlin.jvm.JvmInline
 @Suppress("ReturnCount")
 internal value class PathJsonQuery(internal val segments: List<String>) : JsonQuery {
 
-    @Suppress("NestedBlockDepth")
+    @Suppress("NestedBlockDepth", "CyclomaticComplexMethod")
     override fun select(json: JsonElement): JsonElement {
         var current: JsonElement? = json
         for ((index, segment) in segments.withIndex()) {
@@ -24,19 +24,28 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
                         return ObjectSpreadJsonQuery(
                             PathJsonQuery(segments.subList(index + 1, segments.size))
                         ).select(current)
-                    } else if (segment.contains("|")) {
-                        // Support OR between keys within a single path segment: e.g., "a|b"
-                        current = ShortOrJsonQuery(segment.split("|")).select(current)
-                    } else if (segment.contains("&")) {
-                        // Support AND between keys within a single path segment: e.g., "a&b"
-                        val keys = segment.split("&")
-                        val subset = AndJsonQuery(keys).select(current)
-                        if (index == segments.lastIndex) {
-                            return subset
+                    } else if (segment.contains("|") || segment.contains("&")) {
+                        // Mixed logical operators within a single segment.
+                        // 'AND' has higher precedence than 'OR'. Evaluate OR options left-to-right.
+                        val remaining = segments.subList(index + 1, segments.size)
+                        val orOptions = segment.split("|")
+                        for (option in orOptions) {
+                            val optionResult = if (option.contains("&")) {
+                                val keys = option.split("&")
+                                val subset = AndJsonQuery(keys).select(current)
+                                if (remaining.isEmpty()) {
+                                    subset
+                                } else {
+                                    ObjectSpreadJsonQuery(PathJsonQuery(remaining)).select(subset)
+                                }
+                            } else {
+                                PathJsonQuery(listOf(option) + remaining).select(current)
+                            }
+                            if (optionResult != JsonNull) {
+                                return optionResult
+                            }
                         }
-                        return ObjectSpreadJsonQuery(
-                            PathJsonQuery(segments.subList(index + 1, segments.size))
-                        ).select(subset)
+                        return JsonNull
                     } else {
                         current = current.jsonObject[segment]
                     }

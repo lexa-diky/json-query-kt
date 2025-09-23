@@ -23,6 +23,15 @@ implementation("io.github.lexa-diky:json-query:0.6.0")
 
 ## Quick Examples 🚦
 
+### Path syntax cheatsheet
+- Dot-separated segments traverse objects: `path("a.b.c")`
+- Wildcard spreads over object properties: `path("a.*.b")`
+- Array index and slice: `path("arr")[2]`, `path("arr")[0..2]`, or dot form `path("arr.2")`
+- Short OR between keys in a single segment: `path("a|b")` chooses the first existing key.
+- AND between keys in a single segment: `path("a&b")` returns only those keys if all exist; otherwise returns JsonNull.
+  - You can continue the path after AND: `path("a&b.x")` applies `.x` to both `a` and `b` and returns an object with results per key.
+  - Works inside arrays and with wildcards; missing elements are filtered out.
+
 ### [Kotlin Notebook](doc/example/notebook.ipynb)
 
 ### Querying Json data
