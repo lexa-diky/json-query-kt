@@ -55,8 +55,10 @@ internal value class PathJsonQuery(internal val segments: List<String>) : JsonQu
                     if (segmentAsInt != null) {
                         current = current.jsonArray[segmentAsInt]
                     } else {
-                        return ArraySpreadJsonQuery(
-                            PathJsonQuery(segments.subList(index, segments.size))
+                        // Apply only the current non-integer segment to each array element,
+                        // then continue processing remaining segments on the resulting array.
+                        current = ArraySpreadJsonQuery(
+                            PathJsonQuery(listOf(segment))
                         ).select(current)
                     }
                 }
